@@ -11,5 +11,6 @@
 
 #import "BJPRoom.h"
 #import "BJPPlaybackVM.h"
+#import "BJPLoadingVM.h"
 
 #endif /* Header_h */

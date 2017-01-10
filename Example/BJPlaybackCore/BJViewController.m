@@ -9,9 +9,12 @@
 #import "BJViewController.h"
 #import "BJEnterRoomViewController.h"
 
+#import <BJHL-VideoPlayer-Manager/BJHL-VideoPlayer-Manager.h>
+
 @interface BJViewController ()
 
 @property (nonatomic) UITextField *classIdTextField;
+@property (strong, nonatomic) PMPlayerViewController *player;
 
 @end
 

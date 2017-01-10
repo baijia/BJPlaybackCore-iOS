@@ -17,9 +17,28 @@ PODS:
   - BJHL-AVSDK-iOS (0.1.9)
   - BJHL-Foundation-iOS (1.2.11):
     - CocoaLumberjack (~> 2.0)
+  - BJHL-Kit-iOS (1.1.9):
+    - BJHL-Foundation-iOS
+    - JSBadgeView
+    - MJRefresh
+    - PureLayout
+    - SDWebImage
+  - BJHL-VideoPlayer-Manager (0.1.6):
+    - AFNetworking
+    - BJHL-Foundation-iOS
+    - BJHL-Kit-iOS
+    - BJVideoPlayer
+    - LogStat
+    - M9Dev (~> 0.0)
+    - Masonry
+    - NBKit
+    - ReactiveCocoa (~> 2.0)
+    - SDWebImage
+    - TKAlert&TKActionSheet
+    - YYModel
   - BJHL-Websocket-iOS (0.3.5):
     - PocketSocket
-  - BJLiveCore (0.0.5):
+  - BJLiveCore (0.1.1):
     - AFNetworking
     - BJHL-AVSDK-iOS (>= 0.1.9)
     - BJHL-Foundation-iOS
@@ -32,15 +51,15 @@ PODS:
     - ReactiveCocoa (~> 2.0)
     - SDWebImage
     - YYModel
-  - BJPlaybackCore (0.0.4):
+  - BJPlaybackCore (0.0.5):
     - AFNetworking
     - BJHL-Foundation-iOS
+    - BJHL-VideoPlayer-Manager
     - BJLiveCore
-    - BJVideoPlayer
     - LogStat
     - ReactiveCocoa
     - YYModel
-  - BJVideoPlayer (0.0.7)
+  - BJVideoPlayer (0.0.8)
   - CocoaLumberjack (2.4.0):
     - CocoaLumberjack/Default (= 2.4.0)
     - CocoaLumberjack/Extensions (= 2.4.0)
@@ -49,10 +68,12 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.4.0):
     - CocoaLumberjack/Default
+  - FBRetainCycleDetector (0.1.3)
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
   - JRSwizzle (1.0)
+  - JSBadgeView (1.4.1)
   - libextobjc/EXTScope (0.4.1):
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
@@ -62,7 +83,47 @@ PODS:
     - AFNetworking
     - LKDBHelper
   - LTInfiniteScrollView (4.3.2)
+  - M9Dev (0.0.27):
+    - JRSwizzle
+    - libextobjc/EXTScope
+    - M9Dev/Libraries (= 0.0.27)
+    - M9Dev/M9Dev (= 0.0.27)
+    - Masonry
+    - NSString-UrlEncode
+    - Reachability
+  - M9Dev/Libraries (0.0.27):
+    - JRSwizzle
+    - libextobjc/EXTScope
+    - M9Dev/Libraries/BlocksKit (= 0.0.27)
+    - Masonry
+    - NSString-UrlEncode
+    - Reachability
+  - M9Dev/Libraries/BlocksKit (0.0.27):
+    - JRSwizzle
+    - libextobjc/EXTScope
+    - Masonry
+    - NSString-UrlEncode
+    - Reachability
+  - M9Dev/M9Dev (0.0.27):
+    - JRSwizzle
+    - libextobjc/EXTScope
+    - M9Dev/Libraries
+    - Masonry
+    - NSString-UrlEncode
+    - Reachability
   - Masonry (1.0.2)
+  - MBProgressHUD (1.0.0)
+  - MJRefresh (3.1.12)
+  - MLeaksFinder (0.2.1):
+    - FBRetainCycleDetector
+  - NBKit (0.0.12):
+    - M9Dev (~> 0.0)
+    - Masonry
+    - MBProgressHUD
+    - ReactiveCocoa (~> 2.0)
+    - SDWebImage
+    - YYModel
+  - NSString-UrlEncode (2.1.0)
   - PocketSocket (1.0.1):
     - PocketSocket/Client (= 1.0.1)
     - PocketSocket/Core (= 1.0.1)
@@ -72,6 +133,8 @@ PODS:
   - PocketSocket/Core (1.0.1)
   - PocketSocket/Server (1.0.1):
     - PocketSocket/Client
+  - PureLayout (3.0.2)
+  - Reachability (3.2)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -82,10 +145,12 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - TKAlert&TKActionSheet (1.1.1)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
   - BJPlaybackCore (from `../`)
+  - MLeaksFinder
 
 EXTERNAL SOURCES:
   BJPlaybackCore:
@@ -95,23 +160,36 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   BJHL-AVSDK-iOS: d248e1841c8b1cec89c76a0b2202f8ac1a94e00a
   BJHL-Foundation-iOS: 5e55a0f1ac5b5a1b6bd067e929efd962b49b67bf
+  BJHL-Kit-iOS: c13ccb0d517d3cc2067a16c468c6fe6564b8e4a4
+  BJHL-VideoPlayer-Manager: a0c774172ec954c38263e0eedf10fe418ebccbfe
   BJHL-Websocket-iOS: 46d6b29007b4a6929a52a642147ef5d2888468a3
-  BJLiveCore: 151f4ad9e8d9bf7605d721c00c7643d486ee814e
-  BJPlaybackCore: 463bfeec84a06a15ccb89fee8f04e4f9104629ae
-  BJVideoPlayer: 3252d66d2fdaf0aa2eb363571e6cdedbfe5f8ebd
+  BJLiveCore: b8af3c853516049f687da7ef097cdfcf48388286
+  BJPlaybackCore: ad7315bf201ea863d57a4d1ecf38f2a0e99e8f71
+  BJVideoPlayer: 3873c9f8b9c333363c830cfff852cf7293f1e4a0
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
+  FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
+  JSBadgeView: 3861ddee41094284d9468e6d0af5107f703aaac5
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   LKDBHelper: 531581fa6a7d0f14236cc028ce0d277bca73436a
   LogStat: c984e8e1e804a1ffa706861ada8c2bb2cabc1d68
   LTInfiniteScrollView: 6ce2fcaf6d030a9e45a164ba9dcdb1b325a30d03
+  M9Dev: 62d9ff4e15d862605e629d5f3daa64af09e354f0
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  MLeaksFinder: 0850e2f2abc7227adc4d4e2d1992b431264eb4d5
+  NBKit: d38d78f1022e3a7143a4a5fc5d053e33a3cc5ef6
+  NSString-UrlEncode: 92dcb01cac33ef036cda76baf0e4378b18779e47
   PocketSocket: 9c6867d66fb4f962af96b9b07f4b45bb561b2c2a
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  TKAlert&TKActionSheet: 4fbf47414a54262e240f232ad550e94c405ff9f4
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 6b0b46d3f03271f09117486d72517d926ab9c4cc
+PODFILE CHECKSUM: 14c6ca04e97d0af1547021082961e9eda58d3e19
 
 COCOAPODS: 1.1.1

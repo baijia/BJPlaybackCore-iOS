@@ -25,15 +25,14 @@
 #import "BJLSlideshowVM.h"
 
 #import "BJLChatVM.h"
+#import "BJPLoadingVM.h"
+#import "BJPPlaybackVM.h"
 
 #import "BJLServerRecordingVM.h"
 
 /** UI */
-
 #import "BJLSlideshowUI.h"
 
-#import "BJPLoadingVM.h"
-#import "BJPPlaybackVM.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -46,22 +45,22 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark lifecycle
 
 /** 创建回放的room */
-+ (instancetype)roomWithClassId:(NSString *)classId deployType:(BJLDeployType)deployType;
++ (instancetype)createRoomWithClassId:(NSString *)classId partnerId:(nullable NSString *)partnerId;
 
 /** 进入教室 */
-- (void)enter;
+- (void)enterWithPlaybackViewFrame:(CGRect)frame;
 
 /** 退出教室 */
 - (void)exit;
 
 /** 成功进入教室 */
-- (BJLOEvent)roomDidEnter;
+- (BJLObservable)roomDidEnter;
 
 /**
  退出教室事件，参考 BJLErrorDomain
  */
-- (BJLOEvent)roomWillExitWithError:(BJLError *)error;
-- (BJLOEvent)roomDidExitWithError:(BJLError *)error;
+- (BJLObservable)roomWillExitWithError:(BJLError *)error;
+- (BJLObservable)roomDidExitWithError:(BJLError *)error;
 
 /** 回放的管理VM */
 @property (nonatomic, readonly, nullable) BJPPlaybackVM *playbackVM;
@@ -72,14 +71,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 设置视频清晰度的URL, 标清, 高清, 超清 */
 @property (nonatomic, readonly, nullable) NSString *lowUrlStr, *highUrlStr, *superHDUrlStr;
 
-/** 回放视频的view */
-@property (nonatomic, readonly, nullable) UIView *playbackView;
-
-/** 视频的id */
+/** 教室id */
 @property (readonly, nonatomic, nonnull) NSString *classId;
-
-/** 本地文件的路径 */
-@property (strong, nonatomic) NSString *filePath;
 
 /** 教室信息、状态，用户信息，公告等 */
 @property (nonatomic, readonly, nullable) BJLRoomVM *roomVM;

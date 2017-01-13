@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		282889F31E28A96000E4B242 /* BJEnterRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 282889F21E28A96000E4B242 /* BJEnterRoomViewController.m */; };
+		28AE9B171E261112006F22B5 /* BJUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE9B161E261112006F22B5 /* BJUserViewController.m */; };
+		28AE9B1A1E26112F006F22B5 /* BJChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE9B191E26112F006F22B5 /* BJChatViewController.m */; };
 		28B504DD1E1EB0BD002FF37B /* BJViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B504DC1E1EB0BD002FF37B /* BJViewController.m */; };
 		28B504DF1E1EB703002FF37B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B504DE1E1EB703002FF37B /* Launch Screen.storyboard */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -15,7 +18,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* BJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* BJAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* BJEnterRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* BJEnterRoomViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -38,6 +40,11 @@
 
 /* Begin PBXFileReference section */
 		04F6F6C7E7B8D4925EC6859C /* BJPlaybackCore.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BJPlaybackCore.podspec; path = ../BJPlaybackCore.podspec; sourceTree = "<group>"; };
+		282889F21E28A96000E4B242 /* BJEnterRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJEnterRoomViewController.m; sourceTree = "<group>"; };
+		28AE9B151E261112006F22B5 /* BJUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJUserViewController.h; sourceTree = "<group>"; };
+		28AE9B161E261112006F22B5 /* BJUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJUserViewController.m; sourceTree = "<group>"; };
+		28AE9B181E26112F006F22B5 /* BJChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJChatViewController.h; sourceTree = "<group>"; };
+		28AE9B191E26112F006F22B5 /* BJChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJChatViewController.m; sourceTree = "<group>"; };
 		28B504DB1E1EB0BD002FF37B /* BJViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJViewController.h; sourceTree = "<group>"; };
 		28B504DC1E1EB0BD002FF37B /* BJViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJViewController.m; sourceTree = "<group>"; };
 		28B504DE1E1EB703002FF37B /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -54,7 +61,6 @@
 		6003F59C195388D20070C39A /* BJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BJAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* BJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BJAppDelegate.m; sourceTree = "<group>"; };
 		6003F5A5195388D20070C39A /* BJEnterRoomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BJEnterRoomViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* BJEnterRoomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BJEnterRoomViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* BJPlaybackCore_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BJPlaybackCore_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -143,10 +149,14 @@
 				6003F59C195388D20070C39A /* BJAppDelegate.h */,
 				6003F59D195388D20070C39A /* BJAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* BJEnterRoomViewController.h */,
-				6003F5A6195388D20070C39A /* BJEnterRoomViewController.m */,
 				28B504DB1E1EB0BD002FF37B /* BJViewController.h */,
 				28B504DC1E1EB0BD002FF37B /* BJViewController.m */,
+				6003F5A5195388D20070C39A /* BJEnterRoomViewController.h */,
+				282889F21E28A96000E4B242 /* BJEnterRoomViewController.m */,
+				28AE9B151E261112006F22B5 /* BJUserViewController.h */,
+				28AE9B161E261112006F22B5 /* BJUserViewController.m */,
+				28AE9B181E26112F006F22B5 /* BJChatViewController.h */,
+				28AE9B191E26112F006F22B5 /* BJChatViewController.m */,
 				28B504DE1E1EB703002FF37B /* Launch Screen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -350,7 +360,9 @@
 			files = (
 				28B504DD1E1EB0BD002FF37B /* BJViewController.m in Sources */,
 				6003F59E195388D20070C39A /* BJAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* BJEnterRoomViewController.m in Sources */,
+				28AE9B1A1E26112F006F22B5 /* BJChatViewController.m in Sources */,
+				28AE9B171E261112006F22B5 /* BJUserViewController.m in Sources */,
+				282889F31E28A96000E4B242 /* BJEnterRoomViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

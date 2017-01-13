@@ -6,10 +6,13 @@
 //  Copyright (c) 2017 辛亚鹏. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
+#import <BJPlaybackCore/BJPlaybackCore.h>
 
 @interface BJEnterRoomViewController : UIViewController
 
-+ (instancetype)enterRoomWithClassId:(NSString *)classId;
+@property (nonatomic) BJPRoom *room;
+
++ (instancetype)enterRoomWithClassId:(NSString *)classId partnerId:(NSString *)partnerId;
 
 @end

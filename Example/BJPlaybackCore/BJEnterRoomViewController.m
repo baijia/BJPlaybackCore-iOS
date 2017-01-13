@@ -7,26 +7,36 @@
 //
 
 #import "BJEnterRoomViewController.h"
-#import <BJPlaybackCore/BJPlaybackCore.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <Masonry/Masonry.h>
+
+#import "BJUserViewController.h"
+#import "BJChatViewController.h"
+
+#import <BJLiveCore/BJLiveCore.h>
+
+#import <BJLiveCore/NSObject+BJLObserving.h>
 
 
 @interface BJEnterRoomViewController ()
 
-@property (nonatomic) BJPRoom *room;
-@property (nonatomic) UIView *bottomContentView, *pptView, *definitionView;
-@property (nonatomic) NSString *classId;
-@property (nonatomic) BJPPlaybackVM *playbackVM;
+@property (nonatomic) UIView *bottomContentView;
+@property (nonatomic) NSString *classId, *partnerId;
+@property (nonatomic) UILabel *userTotalCountLabel;
+@property (nonatomic) UISegmentedControl *segmentCtrl;
+@property (nonatomic) BJUserViewController *userCtrl;
+@property (nonatomic) BJChatViewController *chatCtrl;
 
 @end
 
 @implementation BJEnterRoomViewController
 
-+ (instancetype)enterRoomWithClassId:(NSString *)classId {
++ (instancetype)enterRoomWithClassId:(NSString *)classId partnerId:(NSString *)partnerId {
     BJEnterRoomViewController *enterRoomCtrl = [BJEnterRoomViewController new];
     enterRoomCtrl.classId = classId;
+    enterRoomCtrl.partnerId = partnerId;
     return enterRoomCtrl;
+    
 }
 
 - (void)viewDidLoad
@@ -35,24 +45,29 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self enterRoom];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"退出" style:UIBarButtonItemStylePlain target:self action:@selector(exitRoom)];
+    
+    
 }
 
 - (void)enterRoom {
-    self.room = [BJPRoom createRoomWithClassId:_classId partnerId:nil];
+    self.room = [BJPRoom createRoomWithClassId:_classId partnerId:_partnerId];
     
     CGFloat width = ScreenWidth < ScreenHeight ? ScreenWidth : ScreenHeight;
     CGRect frame = CGRectMake(0, 64, width, width*9/16);
     [self.room enterWithPlaybackViewFrame:frame];
     
-    [self pptSetup];
+    [self bottomViewSetup];
     [self setupPlayer];
+    [self userTotalCountLabelSetup];
+    [self changeSignal];
 }
 
 - (void)exitRoom {
     [self.room exit];
-    self.playbackVM = nil;
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark - setupView
 
 - (void)setupPlayer {
     [self.view addSubview:self.room.playbackVM.playView];
@@ -60,19 +75,135 @@
     [self addChildViewController:self.room.playbackVM.playerControl];
 }
 
-- (void)pptSetup {
-    UIView *bottomContentView = [[UIView alloc] initWithFrame:CGRectMake(20, 330, 320, 250)];
+- (void)bottomViewSetup {
+    UIView *bottomContentView = [[UIView alloc] initWithFrame:CGRectMake(25, 350, 330, 250)];
     self.bottomContentView = bottomContentView;
+    bottomContentView.backgroundColor = [UIColor grayColor];
     [self.view addSubview:bottomContentView];
+    UISegmentedControl *segmentCotl = [[UISegmentedControl alloc] initWithItems:@[@"PPT", @"userList", @"chatList"]];
+    self.segmentCtrl = segmentCotl;
+    [segmentCotl setSelectedSegmentIndex:0];
+    
+    [self.view addSubview:segmentCotl];
+    [segmentCotl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.bottomContentView.mas_top).offset(-5);
+        make.height.equalTo(@30);
+        make.width.equalTo(self.bottomContentView);
+        make.centerX.equalTo(self.view);
+    }];
+    
+    self.userCtrl = [BJUserViewController new];
+    self.chatCtrl = [BJChatViewController new];
+    
+    [self changeSignal];
     
     [self addChildViewController:self.room.slideshowViewController];
+    [self addChildViewController:self.userCtrl];
+    [self addChildViewController:self.chatCtrl];
+    
+    [self pptSetup];
+    [self makeSegmentCtrlEvent];
+
+}
+
+- (void)pptSetup {
+    
+    for (UIView *v in self.bottomContentView.subviews) {
+        [v removeFromSuperview];
+    }
     [self.bottomContentView addSubview:self.room.slideshowViewController.view];
-    [self.room.slideshowViewController didMoveToParentViewController:self];
-    self.pptView = self.room.slideshowViewController.view;
     
     [self.room.slideshowViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.bottom.equalTo(self.bottomContentView);
-        make.width.equalTo(self.bottomContentView);
+        make.edges.equalTo(self.bottomContentView);
+    }];
+}
+
+- (void)userViewSetup {
+    for (UIView *v in self.bottomContentView.subviews) {
+        [v removeFromSuperview];
+    }
+    [self.bottomContentView addSubview:self.userCtrl.view];
+    
+    [self.userCtrl.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.bottomContentView);
+    }];
+}
+
+- (void)chatViewSetup {
+    for (UIView *v in self.bottomContentView.subviews) {
+        [v removeFromSuperview];
+    }
+    [self.bottomContentView addSubview:self.chatCtrl.view];
+    //    [self.room.slideshowViewController didMoveToParentViewController:self];
+    
+    [self.chatCtrl.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.bottomContentView);
+    }];
+}
+
+- (void)userTotalCountLabelSetup {
+    UILabel *label = [[UILabel alloc] init];
+    self.userTotalCountLabel = label;
+    label.layer.borderColor = [UIColor grayColor].CGColor;
+    label.layer.borderWidth = 0.5f;
+    label.font = [UIFont systemFontOfSize:12.f];
+    label.text = @"   totalUserCount:";
+    
+    [self.view addSubview:label];
+    
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.width.equalTo(self.bottomContentView);
+        make.top.equalTo(self.room.playbackVM.playView.mas_bottom).offset(5.f);
+        make.bottom.equalTo(self.segmentCtrl.mas_top).offset(-5.f);
+    }];
+}
+
+#pragma mark - signal
+
+- (void)changeSignal {
+    @weakify(self);
+//    [self bjl_observe:BJLMakeMethod(self.room.chatVM, didReceiveMessage:)
+//             observer:^BOOL(NSArray<NSObject<BJLMessage> *> *messageArray){
+//                 @strongify(self);
+//                 self.chatCtrl.chatList = messageArray;
+//                 [self.chatCtrl.tableView reloadData];
+//                 return YES;
+//             }];
+    
+    [self bjl_observe:BJLMakeMethod(self.room.onlineUsersVM, onlineUserCount:)
+             observer:^BOOL(NSNumber *count){
+                 @strongify(self);
+                 self.userTotalCountLabel.text = [NSString stringWithFormat:@"    totalUserCount: %@", count];
+                 return YES;
+             }];
+    
+    [self bjl_observe:BJLMakeMethod(self.room.onlineUsersVM, onlineUserList:)
+             observer:^BOOL(NSArray <NSObject<BJLOnlineUser> *> *userList){
+                 @strongify(self);
+                 self.userCtrl.userList = userList;
+                 [self.userCtrl.tableView reloadData];
+                 return YES;
+             }];
+    
+}
+
+#pragma mark - event
+
+- (void)makeSegmentCtrlEvent {
+    @weakify(self);
+    [[self.segmentCtrl rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(id x) {
+        @strongify(self);
+        NSInteger index = self.segmentCtrl.selectedSegmentIndex;
+        if (0 == index) {
+            [self pptSetup];
+        }
+        else if (1 == index){
+            [self userViewSetup];
+        }
+        else if (2 == index) {
+            [self chatViewSetup];
+        }
+        
     }];
 }
 

@@ -16,7 +16,6 @@
 /** VM **/
 
 #import "BJLRoomVM.h"
-#import "BJLOnlineUsersVM.h"
 
 #import "BJLMediaVM.h"
 #import "BJLPlayingVM.h"
@@ -24,7 +23,8 @@
 #import "BJLSlideVM.h"
 #import "BJLSlideshowVM.h"
 
-#import "BJLChatVM.h"
+#import "BJPChatVM.h"
+#import "BJPOnlineUserVM.h"
 #import "BJPLoadingVM.h"
 #import "BJPPlaybackVM.h"
 
@@ -44,10 +44,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark lifecycle
 
-/** 创建回放的room */
-+ (instancetype)createRoomWithClassId:(NSString *)classId partnerId:(nullable NSString *)partnerId;
+/**
+ 创建回放的room
 
-/** 进入教室 */
+ @param classId classId
+ @param partnerId 暂时传nil
+ @return room
+ */
++ (instancetype)createRoomWithClassId:(NSString *)classId partnerId:(NSString *)partnerId;
+
+/**
+ 进入教室
+ @param frame 设置回放视频的view的frame
+ */
 - (void)enterWithPlaybackViewFrame:(CGRect)frame;
 
 /** 退出教室 */
@@ -65,6 +74,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** 回放的管理VM */
 @property (nonatomic, readonly, nullable) BJPPlaybackVM *playbackVM;
 
+/**
+ 聊天的数组
+ */
+//@property (nonatomic, nullable) NSArray <PBChatModel *>*chatMessageList;
+
 /** 进教室的 loading 状态 */
 @property (nonatomic, readonly, nullable) BJPLoadingVM *loadingVM;
 
@@ -78,7 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, nullable) BJLRoomVM *roomVM;
 
 /** 在线用户 */
-@property (nonatomic, readonly, nullable) BJLOnlineUsersVM *onlineUsersVM;
+@property (nonatomic, readonly, nullable) BJPOnlineUserVM *onlineUsersVM;
 
 /** 音视频 设置 */
 @property (nonatomic, readonly, nullable) BJLMediaVM *mediaVM;
@@ -90,7 +104,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, nullable) UIViewController<BJLSlideshowUI> *slideshowViewController;
 
 /** 聊天 */
-@property (nonatomic, readonly, nullable) BJLChatVM *chatVM;
+@property (nonatomic, readonly, nullable) BJPChatVM *chatVM;
 
 @end
 

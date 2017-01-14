@@ -8,15 +8,12 @@
 
 #import "BJEnterRoomViewController.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import <BJLiveCore/BJLiveCore.h>
+#import <BJLiveCore/NSObject+BJLObserving.h>
 #import <Masonry/Masonry.h>
 
 #import "BJUserViewController.h"
 #import "BJChatViewController.h"
-
-#import <BJLiveCore/BJLiveCore.h>
-
-#import <BJLiveCore/NSObject+BJLObserving.h>
-
 
 @interface BJEnterRoomViewController ()
 
@@ -162,13 +159,13 @@
 
 - (void)changeSignal {
     @weakify(self);
-//    [self bjl_observe:BJLMakeMethod(self.room.chatVM, didReceiveMessage:)
-//             observer:^BOOL(NSArray<NSObject<BJLMessage> *> *messageArray){
-//                 @strongify(self);
-//                 self.chatCtrl.chatList = messageArray;
-//                 [self.chatCtrl.tableView reloadData];
-//                 return YES;
-//             }];
+    [self bjl_observe:BJLMakeMethod(self.room.chatVM, didReceiveMessage:)
+             observer:^BOOL(NSArray<NSObject<BJLMessage> *> *messageArray){
+                 @strongify(self);
+                 self.chatCtrl.chatList = messageArray;
+                 [self.chatCtrl.tableView reloadData];
+                 return YES;
+             }];
     
     [self bjl_observe:BJLMakeMethod(self.room.onlineUsersVM, onlineUserCount:)
              observer:^BOOL(NSNumber *count){

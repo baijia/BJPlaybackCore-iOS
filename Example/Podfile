@@ -12,3 +12,4 @@ target 'BJPlaybackCore_Example' do
   pod ‘SDWebImage’
   
 end
+ 

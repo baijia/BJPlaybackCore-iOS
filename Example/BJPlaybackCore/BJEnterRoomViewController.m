@@ -53,9 +53,9 @@
     CGRect frame = CGRectMake(0, 64, width, width*9/16);
     [self.room enterWithPlaybackViewFrame:frame];
     
-    [self bottomViewSetup];
     [self setupPlayer];
     [self userTotalCountLabelSetup];
+    [self bottomViewSetup];
     [self changeSignal];
 }
 
@@ -72,21 +72,45 @@
     [self addChildViewController:self.room.playbackVM.playerControl];
 }
 
+- (void)userTotalCountLabelSetup {
+    UILabel *label = [[UILabel alloc] init];
+    self.userTotalCountLabel = label;
+    label.layer.borderColor = [UIColor grayColor].CGColor;
+    label.layer.borderWidth = 0.5f;
+    label.font = [UIFont systemFontOfSize:12.f];
+    label.text = @"   totalUserCount:";
+    
+    [self.view addSubview:label];
+    
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(5.f);
+        make.right.equalTo(self.view).offset(-5.f);
+        make.top.equalTo(self.room.playbackVM.playView.mas_bottom).offset(10.f);
+        make.height.equalTo(@25);
+    }];
+}
+
 - (void)bottomViewSetup {
-    UIView *bottomContentView = [[UIView alloc] initWithFrame:CGRectMake(25, 350, 330, 250)];
-    self.bottomContentView = bottomContentView;
-    bottomContentView.backgroundColor = [UIColor grayColor];
-    [self.view addSubview:bottomContentView];
+    
     UISegmentedControl *segmentCotl = [[UISegmentedControl alloc] initWithItems:@[@"PPT", @"userList", @"chatList"]];
     self.segmentCtrl = segmentCotl;
     [segmentCotl setSelectedSegmentIndex:0];
     
     [self.view addSubview:segmentCotl];
     [segmentCotl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.bottomContentView.mas_top).offset(-5);
+        make.left.right.equalTo(self.userTotalCountLabel);
+        make.top.equalTo(self.userTotalCountLabel.mas_bottom).offset(10.f);
         make.height.equalTo(@30);
-        make.width.equalTo(self.bottomContentView);
-        make.centerX.equalTo(self.view);
+    }];
+    
+    UIView *bottomContentView = [[UIView alloc] init];
+    self.bottomContentView = bottomContentView;
+    bottomContentView.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:bottomContentView];
+    [bottomContentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.userTotalCountLabel);
+        make.bottom.equalTo(self.view).offset(-30.f);
+        make.top.equalTo(self.segmentCtrl.mas_bottom).offset(10.f);
     }];
     
     self.userCtrl = [BJUserViewController new];
@@ -135,23 +159,6 @@
     
     [self.chatCtrl.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.bottomContentView);
-    }];
-}
-
-- (void)userTotalCountLabelSetup {
-    UILabel *label = [[UILabel alloc] init];
-    self.userTotalCountLabel = label;
-    label.layer.borderColor = [UIColor grayColor].CGColor;
-    label.layer.borderWidth = 0.5f;
-    label.font = [UIFont systemFontOfSize:12.f];
-    label.text = @"   totalUserCount:";
-    
-    [self.view addSubview:label];
-    
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.width.equalTo(self.bottomContentView);
-        make.top.equalTo(self.room.playbackVM.playView.mas_bottom).offset(5.f);
-        make.bottom.equalTo(self.segmentCtrl.mas_top).offset(-5.f);
     }];
 }
 

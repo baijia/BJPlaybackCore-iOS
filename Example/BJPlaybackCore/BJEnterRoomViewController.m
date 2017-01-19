@@ -41,7 +41,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self enterRoom];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"退出" style:UIBarButtonItemStylePlain target:self action:@selector(exitRoom)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"退出房间" style:UIBarButtonItemStylePlain target:self action:@selector(exitRoom)];
     
     
 }
@@ -166,8 +166,8 @@
 
 - (void)changeSignal {
     @weakify(self);
-    [self bjl_observe:BJLMakeMethod(self.room.chatVM, didReceiveMessage:)
-             observer:^BOOL(NSArray<NSObject<BJLMessage> *> *messageArray){
+    [self bjl_observe:BJLMakeMethod(self.room, didReceiveMessageList:)
+             observer:^BOOL(NSArray<BJPMessage *> *messageArray){
                  @strongify(self);
                  self.chatCtrl.chatList = messageArray;
                  [self.chatCtrl.tableView reloadData];

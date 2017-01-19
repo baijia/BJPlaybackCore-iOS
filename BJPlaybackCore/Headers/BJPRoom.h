@@ -23,12 +23,13 @@
 #import "BJLSlideVM.h"
 #import "BJLSlideshowVM.h"
 
-#import "BJPChatVM.h"
 #import "BJPOnlineUserVM.h"
 #import "BJPLoadingVM.h"
 #import "BJPPlaybackVM.h"
 
 #import "BJLServerRecordingVM.h"
+
+#import "BJPMessage.h"
 
 /** UI */
 #import "BJLSlideshowUI.h"
@@ -71,6 +72,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (BJLObservable)roomWillExitWithError:(BJLError *)error;
 - (BJLObservable)roomDidExitWithError:(BJLError *)error;
 
+/**
+ 聊天信息的list
+ */
+- (BJLObservable)didReceiveMessageList:(NSArray <BJPMessage *> *)messageList;
+
 /** 回放的管理VM */
 @property (nonatomic, readonly, nullable) BJPPlaybackVM *playbackVM;
 
@@ -81,9 +87,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 进教室的 loading 状态 */
 @property (nonatomic, readonly, nullable) BJPLoadingVM *loadingVM;
-
-/** 设置视频清晰度的URL, 标清, 高清, 超清 */
-@property (nonatomic, readonly, nullable) NSString *lowUrlStr, *highUrlStr, *superHDUrlStr;
 
 /** 教室id */
 @property (readonly, nonatomic, nonnull) NSString *classId;
@@ -102,9 +105,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 课件显示 */
 @property (nonatomic, readonly, nullable) UIViewController<BJLSlideshowUI> *slideshowViewController;
-
-/** 聊天 */
-@property (nonatomic, readonly, nullable) BJPChatVM *chatVM;
 
 @end
 

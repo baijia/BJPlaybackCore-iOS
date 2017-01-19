@@ -50,10 +50,4 @@
  */
 - (void)playerStop;
 
-/**
- seek
- @param time time
- */
-- (void)playerSeekToTime:(NSTimeInterval)seekTotime;
-
 @end

@@ -50,8 +50,9 @@
     self.classIdTextField = [UITextField new];
     self.classIdTextField.layer.borderWidth = 1.f;
     self.classIdTextField.layer.borderColor = [UIColor grayColor].CGColor;
-    self.classIdTextField.text = @"17010691963824";
+//    self.classIdTextField.text = @"17010691963824";
 //    self.classIdTextField.text = @"16122291873953";
+    self.classIdTextField.text = @"17010591900320";
     self.classIdTextField.leftViewMode = UITextFieldViewModeAlways;
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 42)];
     label.text = @"教室id: ";

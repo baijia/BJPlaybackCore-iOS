@@ -11,6 +11,6 @@
 
 @interface BJChatViewController : UITableViewController
 
-@property (nonatomic) NSArray<NSObject<BJLMessage> *> *chatList;
+@property (nonatomic) NSArray<BJPMessage*> *chatList;
 
 @end

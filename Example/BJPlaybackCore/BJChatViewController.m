@@ -33,16 +33,18 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (!self.chatList.count) {
+        return nil;
+    }
+    BJPMessage  *message = self.chatList[indexPath.row];
     
-    NSObject<BJLMessage> *message = self.chatList[indexPath.row];
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"chatCell"];
     cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.text = message.fromUser.name;
+    cell.textLabel.text = message.userName;
     cell.detailTextLabel.text = message.content;
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.detailTextLabel.textColor = [UIColor whiteColor];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:message.fromUser.avatar]];
-    NSLog(@"message.fromUser.avatar = %@", message.fromUser.avatar);
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:message.userAvatar]];
 
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     

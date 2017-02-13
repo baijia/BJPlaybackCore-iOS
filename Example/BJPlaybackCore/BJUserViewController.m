@@ -38,7 +38,6 @@
     cell.textLabel.text = user.name;
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.avatar]];
     
-    NSLog(@"user.avatar = %@", user.avatar);
     
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.textColor = [UIColor whiteColor];

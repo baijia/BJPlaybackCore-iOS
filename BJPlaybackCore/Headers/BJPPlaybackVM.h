@@ -20,6 +20,7 @@
 @property (nonatomic, readonly) NSTimeInterval seekTotime;
 @property (nonatomic, readonly) PBSignalModel *signalModel;
 @property (nonatomic) UIView *playView;
+@property (nonatomic) NSString *userInfo; //设置回放用户的标识符
 
 /**
  <#Description#>

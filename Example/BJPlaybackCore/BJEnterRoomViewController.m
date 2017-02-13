@@ -18,7 +18,7 @@
 @interface BJEnterRoomViewController ()
 
 @property (nonatomic) UIView *bottomContentView;
-@property (nonatomic) NSString *classId, *partnerId;
+@property (nonatomic) NSString *classId, *partnerId, *userInfo;
 @property (nonatomic) UILabel *userTotalCountLabel;
 @property (nonatomic) UISegmentedControl *segmentCtrl;
 @property (nonatomic) BJUserViewController *userCtrl;
@@ -28,12 +28,16 @@
 
 @implementation BJEnterRoomViewController
 
-+ (instancetype)enterRoomWithClassId:(NSString *)classId partnerId:(NSString *)partnerId {
++ (instancetype)enterRoomWithClassId:(NSString *)classId
+                           partnerId:(NSString *)partnerId
+                            userInfo:(NSString *)userInfo
+
+{
     BJEnterRoomViewController *enterRoomCtrl = [BJEnterRoomViewController new];
     enterRoomCtrl.classId = classId;
     enterRoomCtrl.partnerId = partnerId;
+    enterRoomCtrl.userInfo = userInfo;
     return enterRoomCtrl;
-    
 }
 
 - (void)viewDidLoad
@@ -43,12 +47,14 @@
     [self enterRoom];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"退出房间" style:UIBarButtonItemStylePlain target:self action:@selector(exitRoom)];
     
-    
 }
 
 - (void)enterRoom {
     self.room = [BJPRoom createRoomWithClassId:_classId partnerId:_partnerId];
     
+    // 设置需要上报的userInfo
+    [self.room.playbackVM setUserInfo:_userInfo];
+
     CGFloat width = ScreenWidth < ScreenHeight ? ScreenWidth : ScreenHeight;
     CGRect frame = CGRectMake(0, 64, width, width*9/16);
     [self.room enterWithPlaybackViewFrame:frame];

@@ -10,6 +10,6 @@
 
 @interface BJPLoadingVM : NSObject
 
-- (BJLObservable)downloadTextFile;
+- (BJLObservable)downloadTextFileWithError:(BJLError*)error;
 
 @end

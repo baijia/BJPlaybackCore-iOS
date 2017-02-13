@@ -13,6 +13,8 @@
 
 @property (nonatomic) BJPRoom *room;
 
-+ (instancetype)enterRoomWithClassId:(NSString *)classId partnerId:(NSString *)partnerId;
++ (instancetype)enterRoomWithClassId:(NSString *)classId
+                           partnerId:(NSString *)partnerId
+                            userInfo:(NSString *)userInfo;
 
 @end

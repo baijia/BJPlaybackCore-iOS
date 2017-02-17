@@ -3,8 +3,8 @@
 //  Pods
 //
 //  Created by 辛亚鹏 on 2017/1/18.
-//
-//
+//  Copyright © 2017年 bjhl. All rights reserved.
+//  聊天信息
 
 #import <Foundation/Foundation.h>
 #import <YYModel/YYModel.h>

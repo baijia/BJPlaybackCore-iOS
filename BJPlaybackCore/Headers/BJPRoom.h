@@ -52,13 +52,13 @@ NS_ASSUME_NONNULL_BEGIN
  @param partnerId 暂时传nil
  @return room
  */
-+ (instancetype)createRoomWithClassId:(NSString *)classId partnerId:(NSString *)partnerId;
++ (instancetype)createRoomWithClassId:(NSString *)classId token:(NSString *)token;
 
 /**
  进入教室
  @param frame 设置回放视频的view的frame
  */
-- (void)enterWithPlaybackViewFrame:(CGRect)frame;
+- (void)enter;
 
 /** 退出教室 */
 - (void)exit;

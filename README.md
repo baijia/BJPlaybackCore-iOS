@@ -26,32 +26,36 @@ pod 'BJPlaybackCore'
  创建回放的room
 
  @param classId classId
- @param partnerId 暂时传nil
+ @param token token
  @return room
  */
-+ (instancetype)createRoomWithClassId:(NSString *)classId partnerId:(nullable NSString *)partnerId;
++ (instancetype)createRoomWithClassId:(NSString *)classId token:(NSString *)token;
+```
+## 4.进入房间
+```
+[self.room enter];
 ```
 
-## 4.进入房间,设置播放器
-- 实例化播放器的管理类
+## 5.设置播放器, 自定义UI
+- 上报回放用户的标识符
 ```
-/**
- 进入教室
- @param frame 设置回放视频的view的frame
- */
-- (void)enterWithPlaybackViewFrame:(CGRect)frame;
+[self.room.playbackVM setUserInfo:_userInfo];
 ```
-
-## 5.设置PPT
+- 自定义播放器的UI
+```
+self.room.playbackVM.playView是播放器的view, 可自定义frame,
+播放器的其他功能可查看BJPPlaybackVM.h, 调用相关的API即可实现.
+```
+## 6.设置PPT
 ```
 self.room.slideshowViewController.view
 ```
-## 6.退出房间
+## 7.退出房间
 ```
 /** 退出教室 */
 - (void)exit;
 ```
 
-## 7.changeLogs
+## 8.changeLogs
 
 - 参见```BJLiveCore```的```wiki```(https://github.com/baijia/BJLiveCore-iOS/wiki)

@@ -8,31 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "BJLBlockHelper.h"
-
-#import "BJLConstants.h"
-#import "BJLFeatureConfig.h"
-
-/** VM **/
-
-#import "BJLRoomVM.h"
-
-#import "BJLMediaVM.h"
-#import "BJLPlayingVM.h"
-
-#import "BJLSlideVM.h"
-#import "BJLSlideshowVM.h"
+#import <BJLiveCore/BJLiveCore.h>
 
 #import "BJPOnlineUserVM.h"
 #import "BJPLoadingVM.h"
 #import "BJPPlaybackVM.h"
 
-#import "BJLServerRecordingVM.h"
-
 #import "BJPMessage.h"
 
 /** UI */
-#import "BJLSlideshowUI.h"
+//#import "BJLSlideshowUI.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -63,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 退出教室 */
 - (void)exit;
 
-/** 成功进入教室 */
+/** 成功进入教室, 才可以获取playbackVM的一些播放信息 */
 - (BJLObservable)roomDidEnter;
 
 /**

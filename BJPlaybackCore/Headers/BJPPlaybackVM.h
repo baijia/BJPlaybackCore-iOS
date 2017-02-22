@@ -14,14 +14,19 @@
 @interface BJPPlaybackVM : NSObject
 
 /**
+ 设置回放用户的标识符
+ */
+@property (nonatomic) NSString *userInfo;
+
+/**
+ 当前的播放时间  支持KVO
+ */
+@property (nonatomic, readonly) NSTimeInterval currentTime;
+
+/**
  播放控制器
  */
 @property (nonatomic, readonly) BJPlayerManager *playerControl;
-
-/**
- 当前的播放时间
- */
-@property (nonatomic, readonly) NSTimeInterval currentTime;
 
 /**
  当前的播放速度
@@ -42,11 +47,6 @@
  播放器的view
  */
 @property (nonatomic, readonly) UIView *playView;
-
-/**
- 设置回放用户的标识符
- */
-@property (nonatomic) NSString *userInfo;
 
 /**
  播放信息

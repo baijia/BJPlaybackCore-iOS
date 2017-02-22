@@ -10,6 +10,5 @@
 #define Header_h
 
 #import "BJPRoom.h"
-#import "BJPPlaybackVM.h"
 
 #endif /* Header_h */

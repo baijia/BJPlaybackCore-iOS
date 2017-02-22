@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.public_header_files = 'BJPlaybackCore/**/*.h'
   s.source_files = 'BJPlaybackCore/**/*.h'
   s.vendored_libraries = 'BJPlaybackCore/**/*.a'
-  s.resources = 'BJPlaybackCore/**/*.bundle'
+#  s.resources = 'BJPlaybackCore/**/*.bundle'
   
   s.dependency 'AFNetworking'
   s.dependency 'BJHL-Foundation-iOS'

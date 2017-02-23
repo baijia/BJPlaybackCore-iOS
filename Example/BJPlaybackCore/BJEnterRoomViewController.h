@@ -14,7 +14,7 @@
 @property (nonatomic) BJPRoom *room;
 
 + (instancetype)enterRoomWithClassId:(NSString *)classId
-                           partnerId:(NSString *)partnerId
+                           token:(NSString *)token
                             userInfo:(NSString *)userInfo;
 
 @end

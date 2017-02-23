@@ -7,7 +7,6 @@ source 'https://github.com/baijia/specs.git'
 target 'BJPlaybackCore_Example' do
 
   pod ‘BJPlaybackCore’
-  pod 'BJHL-Kit-iOS'
   pod 'Masonry'
   pod ‘ReactiveCocoa’, ‘~>2.0’
   pod ‘SDWebImage’

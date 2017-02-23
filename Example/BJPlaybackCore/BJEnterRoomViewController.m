@@ -15,10 +15,10 @@
 #import "BJUserViewController.h"
 #import "BJChatViewController.h"
 
-@interface BJEnterRoomViewController ()
+@interface BJEnterRoomViewController ()<BJPMProtocol>
 
 @property (nonatomic) UIView *bottomContentView;
-@property (nonatomic) NSString *classId, *partnerId, *userInfo;
+@property (nonatomic) NSString *classId, *token, *userInfo;
 @property (nonatomic) UILabel *userTotalCountLabel;
 @property (nonatomic) UISegmentedControl *segmentCtrl;
 @property (nonatomic) BJUserViewController *userCtrl;
@@ -29,13 +29,13 @@
 @implementation BJEnterRoomViewController
 
 + (instancetype)enterRoomWithClassId:(NSString *)classId
-                           partnerId:(NSString *)partnerId
+                           token:(NSString *)token
                             userInfo:(NSString *)userInfo
 
 {
     BJEnterRoomViewController *enterRoomCtrl = [BJEnterRoomViewController new];
     enterRoomCtrl.classId = classId;
-    enterRoomCtrl.partnerId = partnerId;
+    enterRoomCtrl.token = token;
     enterRoomCtrl.userInfo = userInfo;
     return enterRoomCtrl;
 }
@@ -45,24 +45,35 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self enterRoom];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"退出房间" style:UIBarButtonItemStylePlain target:self action:@selector(exitRoom)];
-    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"退出房间" style:UIBarButtonItemStylePlain target:self action:@selector(exitRoom)];    
 }
 
 - (void)enterRoom {
-    self.room = [BJPRoom createRoomWithClassId:_classId partnerId:_partnerId];
+    self.room = [BJPRoom createRoomWithClassId:_classId token:_token];
     
     // 设置需要上报的userInfo
     [self.room.playbackVM setUserInfo:_userInfo];
 
-    CGFloat width = ScreenWidth < ScreenHeight ? ScreenWidth : ScreenHeight;
-    CGRect frame = CGRectMake(0, 64, width, width*9/16);
-    [self.room enterWithPlaybackViewFrame:frame];
+    self.room.playbackVM.playerControl.delegate = self;
     
+    
+    [self.room enter];
+    
+
     [self setupPlayer];
     [self userTotalCountLabelSetup];
     [self bottomViewSetup];
     [self changeSignal];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(playStatusChange:)
+                                                 name:PKMoviePlayerPlaybackStateDidChangeNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(playStatusChange:)
+                                                 name:PKMoviePlayerLoadStateDidChangeNotification
+                                               object:nil];
 }
 
 - (void)exitRoom {
@@ -73,9 +84,10 @@
 #pragma mark - setupView
 
 - (void)setupPlayer {
+    CGFloat width = ScreenWidth < ScreenHeight ? ScreenWidth : ScreenHeight;
+    CGRect frame = CGRectMake(0, 64, width, width*9/16);
+    self.room.playbackVM.playView.frame = frame;
     [self.view addSubview:self.room.playbackVM.playView];
-    
-    [self addChildViewController:self.room.playbackVM.playerControl];
 }
 
 - (void)userTotalCountLabelSetup {
@@ -194,6 +206,14 @@
                  [self.userCtrl.tableView reloadData];
                  return YES;
              }];
+    [self bjl_kvo:BJLMakeProperty(self.room.playbackVM, currentTime) observer:^BOOL(NSNumber * _Nullable old, NSNumber *  _Nullable now) {
+        
+        NSLog(@"old = %@ \n===============*********=============\n now = %@", old, now);
+        
+        NSLog(@"+================= *****  videoInfoModel = %@", self.room.playbackVM.videoInfoModel);
+        
+        return YES;
+    }];
     
 }
 
@@ -215,6 +235,25 @@
         }
         
     }];
+}
+
+#pragma mark - BJPMProtocol 
+
+- (void)videoplayer:(BJPlayerManager *)playerManager throwPlayError:(NSError *)error {
+    
+    NSLog(@"=============== > error= %@", error);
+    
+}
+
+#pragma mark - noti seletor
+
+- (void)playStatusChange:(NSNotification *)noti {
+    
+    NSLog(@"*******==================******** playStatusChange");
+}
+
+- (void)loadStatusChange:(NSNotification *)noti {
+    NSLog(@"*******==================******** loadStatusChange");
 }
 
 @end

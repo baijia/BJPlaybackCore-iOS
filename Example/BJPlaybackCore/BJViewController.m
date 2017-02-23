@@ -11,8 +11,9 @@
 
 @interface BJViewController ()
 
-@property (nonatomic) UITextField *classIdTextField, *partnerIdTextField, *userInfoTextField;
-@property (strong, nonatomic) PMPlayerViewController *player;
+@property (nonatomic) UITextField *classIdTextField, *tokenTextField, *userInfoTextField;
+//@property (strong, nonatomic) PMPlayerViewController *player;
+@property (strong, nonatomic) BJPlayerManager *player;
 
 @end
 
@@ -20,22 +21,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupPartnerIdTextField];
+    [self setuptokenTextField];
     [self setupClassIdTextField];
     [self setupUserInfoTextField];
     [self setupButton];    
 }
 
-- (void)setupPartnerIdTextField {
+- (void)setuptokenTextField {
+
+        self.tokenTextField = [self textFieldwithContent:@"test12345678" leftLabelText:@"token: "];
+
+    //线上的
+//    NSString *str1 = @"KguPe_8Ruto3S3PxCaNtta7zLflkgyf9X5fqcsRmox4xuSba8SBafg";
+//    self.tokenTextField = [self textFieldwithContent:str1 leftLabelText:@"token: "];
     
-    self.partnerIdTextField = [self textFieldwithContent:@"32958737" leftLabelText:@"合作Id: "];
-    [self.view addSubview:self.partnerIdTextField];
-    [self.partnerIdTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.view addSubview:self.tokenTextField];
+    [self.tokenTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(150.f);
         make.left.equalTo(self.view).offset(30.f);
         make.right.equalTo(self.view).offset(-30.f);
         make.height.equalTo(@42);
-        
     }];
 }
 
@@ -44,13 +49,16 @@
 //    self.classIdTextField.text = @"17010691963824";
     //    self.classIdTextField.text = @"16122291873953";
     //    self.classIdTextField.text = @"17010591900320";
-    
+//    17022149694168
+
     self.classIdTextField = [self textFieldwithContent:@"17010691963824" leftLabelText:@"教室id: "];
+//线上的
+//    self.classIdTextField = [self textFieldwithContent:@"17022149694168" leftLabelText:@"教室id: "];
     [self.view addSubview:self.classIdTextField];
     
     [self.classIdTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.partnerIdTextField.mas_bottom).offset(30.f);
-        make.left.right.height.equalTo(self.partnerIdTextField);
+        make.top.equalTo(self.tokenTextField.mas_bottom).offset(30.f);
+        make.left.right.height.equalTo(self.tokenTextField);
     }];
 }
 
@@ -63,7 +71,7 @@
     
     [self.userInfoTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.classIdTextField.mas_bottom).offset(30.f);
-        make.left.right.height.equalTo(self.partnerIdTextField);
+        make.left.right.height.equalTo(self.tokenTextField);
     }];
 }
 
@@ -88,7 +96,7 @@
 - (void)enterRoom:(UIButton *)button {
     BJEnterRoomViewController *enterRoom = [BJEnterRoomViewController
                                             enterRoomWithClassId:self.classIdTextField.text
-                                            partnerId:self.partnerIdTextField.text
+                                            token:self.tokenTextField.text
                                             userInfo:self.userInfoTextField.text];
     [self.navigationController pushViewController:enterRoom animated:YES
      ];

@@ -66,13 +66,15 @@ self.room.playbackVM.playView是播放器的view, 可自定义frame,
 2. 播放器的播放时间支持KVO回调
 ```
 [self bjl_kvo:BJLMakeProperty(self.room.playbackVM, currentTime) observer:^BOOL(NSNumber * _Nullable old, NSNumber *  _Nullable now) {
-     
      //code
      return YES;
 }];
 ```
+
 3. 播放信息```self.room.playbackVM.videoInfoModel```在```roomDidEnter```之后才有信息
+
 4. 播放器的其他功能可查看```BJPPlaybackVM.h```, 调用相关的API即可实现.
+
 ## 6.设置PPT
 ```
 self.room.slideshowViewController.view

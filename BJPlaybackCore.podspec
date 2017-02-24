@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BJPlaybackCore"
-  s.version      = "0.1.6"
+  s.version      = "0.1.8"
   s.summary      = "BJPlaybackCore SDK."
   s.license      = "MIT"
   s.author       = { "辛亚鹏" => "xinyapeng@baijiahulian.com" }
@@ -33,6 +33,7 @@ Pod::Spec.new do |s|
   s.dependency 'BJHL-VideoPlayer-Manager'
   s.dependency 'LogStat'
   s.dependency 'YYModel'
+  s.dependency 'NVHTarGzip'
   # DEPRECATED
   s.dependency 'ReactiveCocoa'
 

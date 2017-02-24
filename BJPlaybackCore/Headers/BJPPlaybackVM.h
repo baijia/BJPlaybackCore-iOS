@@ -53,11 +53,6 @@
  */
 @property (nonatomic, readonly) PMVideoInfoModel *videoInfoModel;
 
-/**
- @param classId classId
- @param token   token
- */
-- (void)playVideoWithClassId:(NSString *)classId token:(NSString *)token;
 
 /**
  play

@@ -40,16 +40,33 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)createRoomWithClassId:(NSString *)classId token:(NSString *)token;
 
 /**
- 进入教室
+ 播放在线视频播放 进入教室
  @param frame 设置回放视频的view的frame
  */
 - (void)enter;
 
+/**
+ 播放本地视频  进入房间
+
+ @param videoPath 本地视频的路径
+ @param startVideo 片头地址, 可为nil
+ @param endVideo 片尾地址,可为nil
+ @param path 本地信令 压缩文件的路径
+ */
+- (void)enterRoomWithVideoPath:(NSString *)videoPath
+                    startVideo:(nullable NSString*)startVideo
+                      endVideo:(nullable NSString*)endVideo
+                    signalPath:(NSString *)signalPath;
+
 /** 退出教室 */
 - (void)exit;
 
-/** 成功进入教室, 才可以获取playbackVM的一些播放信息 */
-- (BJLObservable)roomDidEnter;
+/** 
+ 成功进入教室后,
+ case: 在线播放, 获取playbackVM的播放信息
+ case: 本地视频, 信令文件解压完毕,并载入内存
+ */
+- (BJLObservable)roomDidEnterWithError:(BJLError *)error;
 
 /**
  退出教室事件，参考 BJLErrorDomain

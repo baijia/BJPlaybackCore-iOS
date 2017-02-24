@@ -54,7 +54,23 @@ self.room.playbackVM.playerControl.delegate = self;
 
 ## 4.进入房间
 ```
+/**
+在线视频 进入房间
+*/
 [self.room enter];
+
+/**
+ 播放本地视频  进入房间
+
+ @param videoPath 本地视频的路径
+ @param startVideo 片头地址, 可为nil
+ @param endVideo 片尾地址,可为nil
+ @param path 本地信令 压缩文件的路径
+ */
+- (void)enterRoomWithVideoPath:(NSString *)videoPath
+                    startVideo:(nullable NSString*)startVideo
+                      endVideo:(nullable NSString*)endVideo
+                    signalPath:(NSString *)signalPath;
 ```
 
 ## 5.自定义UI
@@ -89,3 +105,4 @@ self.room.slideshowViewController.view
 
 - 参见```BJLiveCore```的```wiki```(https://github.com/baijia/BJLiveCore-iOS/wiki)
 - 0.1.6: fix crash, 优化回调
+- 0.1.8: 增加本地视频播放的接口

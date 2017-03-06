@@ -41,7 +41,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  播放在线视频播放 进入教室
- @param frame 设置回放视频的view的frame
  */
 - (void)enter;
 
@@ -56,7 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)enterRoomWithVideoPath:(NSString *)videoPath
                     startVideo:(nullable NSString*)startVideo
                       endVideo:(nullable NSString*)endVideo
-                    signalPath:(NSString *)signalPath;
+                    signalPath:(NSString *)signalPath
+                    definition:(PMVideoDefinitionType)definition;
 
 /** 退出教室 */
 - (void)exit;

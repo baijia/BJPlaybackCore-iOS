@@ -11,6 +11,9 @@
 
 @class BJPSignalModel;
 
+//播放本地视频, 解压信令文件失败的通知
+extern const NSString *BJPSignalFileUnarchiveFild;
+
 @interface BJPPlaybackVM : NSObject
 
 /**
@@ -26,7 +29,7 @@
 /**
  播放控制器
  */
-@property (nonatomic, readonly) BJPlayerManager *playerControl;
+@property (nonatomic) BJPlayerManager *playerControl;
 
 /**
  当前的播放速度
@@ -52,6 +55,17 @@
  播放信息
  */
 @property (nonatomic, readonly) PMVideoInfoModel *videoInfoModel;
+
+/**
+ 当前播放清晰度
+ */
+@property (nonatomic, readonly) PMVideoDefinitionInfoModel *currDefinitionInfoModel;
+
+/**
+ 当前播放的CDN
+ */
+@property (nonatomic, readonly) PMVideoCDNInfoModel *currCDNInfoModel;
+
 
 
 /**

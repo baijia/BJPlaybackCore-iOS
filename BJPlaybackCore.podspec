@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BJPlaybackCore"
-  s.version      = "0.2.3"
+  s.version      = "0.2.0"
   s.summary      = "BJPlaybackCore SDK."
   s.license      = "MIT"
   s.author       = { "辛亚鹏" => "xinyapeng@baijiahulian.com" }

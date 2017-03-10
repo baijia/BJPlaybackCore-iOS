@@ -16,9 +16,12 @@
 
 #import "BJPMessage.h"
 
-/** UI */
-//#import "BJLSlideshowUI.h"
-
+typedef NS_ENUM(NSInteger, BJPMediaLibraryAuthorizationStatus) {
+    BJPMediaLibraryAuthorizationStatusNotDetermined = 0,
+    BJPMediaLibraryAuthorizationStatusDenied,
+    BJPMediaLibraryAuthorizationStatusRestricted,
+    BJPMediaLibraryAuthorizationStatusAuthorized,
+};
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -51,18 +54,27 @@ NS_ASSUME_NONNULL_BEGIN
  @param startVideo 片头地址, 可为nil
  @param endVideo 片尾地址,可为nil
  @param path 本地信令 压缩文件的路径
+ @param handle 用于在iOS10以上的系统用户授权进入本地资料库, 如果版本低iOS10,不需要授权,
+               即status = BJPMediaLibraryAuthorizationStatusAuthorized
  */
 - (void)enterRoomWithVideoPath:(NSString *)videoPath
                     startVideo:(nullable NSString*)startVideo
                       endVideo:(nullable NSString*)endVideo
                     signalPath:(NSString *)signalPath
-                    definition:(PMVideoDefinitionType)definition;
+                    definition:(PMVideoDefinitionType)definition __deprecated_msg("过期, 请用下面有回调的方法");
+- (void)enterRoomWithVideoPath:(NSString *)videoPath
+                    startVideo:(nullable NSString*)startVideo
+                      endVideo:(nullable NSString*)endVideo
+                    signalPath:(NSString *)signalPath
+                    definition:(PMVideoDefinitionType)definition
+                        status:(void (^)(BJPMediaLibraryAuthorizationStatus status))handle;;
 
 /** 退出教室 */
 - (void)exit;
 
 /** 
  成功进入教室后,
+ @param error:成功进入房间, error为空, 如果有失败, error不为空
  case: 在线播放, 获取playbackVM的播放信息
  case: 本地视频, 信令文件解压完毕,并载入内存
  */

@@ -12,7 +12,7 @@
 @class BJPSignalModel;
 
 //播放本地视频, 解压信令文件失败的通知
-extern const NSString *BJPSignalFileUnarchiveFild;
+extern const NSString *BJPSignalFileUnarchiveFild __deprecated_msg("不需要监听这个通知, 监听进入房间失败的信息");
 
 @interface BJPPlaybackVM : NSObject
 

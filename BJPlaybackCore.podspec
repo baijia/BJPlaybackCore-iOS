@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BJPlaybackCore"
-  s.version      = "0.2.5"
+  s.version      = "0.2.6"
   s.summary      = "BJPlaybackCore SDK."
   s.license      = "MIT"
   s.author       = { "辛亚鹏" => "xinyapeng@baijiahulian.com" }
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.description = 'BJPlaybackCore SDK for iOS.'
   s.requires_arc = true
 
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "7.0"
   s.frameworks = ['CoreGraphics', 'Foundation', 'UIKit']
 
   # s.ios.vendored_frameworks = 'BJPlaybackCore-#{s.version}/BJPlaybackCore.framework'    

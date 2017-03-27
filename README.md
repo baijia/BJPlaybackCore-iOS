@@ -23,13 +23,17 @@ pod 'BJPlaybackCore'
 
 ## 3. 创建房间并设置播放器的代理,上报回放用户的标识符
 - 创建回放的room
-```/**
+```
+/**
+创建回放的room
+创建在线视频, 参数不可传空
+创建本地room的话, 两个参数传nil
 
- @param classId classId
- @param token token
- @return room
- */
-+ (instancetype)createRoomWithClassId:(NSString *)classId token:(NSString *)token;
+@param classId classId
+@param token token
+@return room
+*/
++ (instancetype)createRoomWithClassId:(nullable NSString *)classId token:(nullable NSString *)token;
 ```
 - 遵守<BJPMProtocol>, 设置播放器的代理
 ```
@@ -46,7 +50,7 @@ self.room.playbackVM.playerControl.delegate = self;
 - (void)videoplayer:(BJPlayerManager *)playerManager throwPlayError:(NSError *)error;
 
 ```
-- 上报回放用户的标识符
+- 如果有用户的标识符, 上报回放用户的标识符
 ```
 [self.room.playbackVM setUserInfo:_userInfo];
 ```
@@ -71,6 +75,16 @@ self.room.playbackVM.playerControl.delegate = self;
                     startVideo:(nullable NSString*)startVideo
                       endVideo:(nullable NSString*)endVideo
                     signalPath:(NSString *)signalPath;
+```
+- 在APP的info.plist增加媒体资料库```NSAppleMusicUsageDescription```, 用于iOS10以上系统的手机访问本地的视频和信令文件
+- iOS10以上的系统首次播放本地视频时候, 需要用户授权:
+```
+[self.room enterRoomWithVideoPath:self.videoPath startVideo:nil endVideo:nil signalPath:self.signalPath definition:DT_LOW status:^(BJPMediaLibraryAuthorizationStatus status) {
+    if (status != BJPMediaLibraryAuthorizationStatusAuthorized) {
+        //NSString *str = @"请到设置 -> 隐私 -> 媒体资料库 中打开 本APP的选项, 否则无法看本地视频";
+        //code 
+    }
+}];
 ```
 
 ## 5.自定义UI
@@ -106,3 +120,8 @@ self.room.slideshowViewController.view
 - 参见```BJLiveCore```的```wiki```(https://github.com/baijia/BJLiveCore-iOS/wiki)
 - 0.1.6: fix crash, 优化回调
 - 0.1.8: 增加本地视频播放的接口
+- 0.2.0: 增加片头片尾广告
+- 0.2.3: 更新本地播放方法, 本地信令解压失败的容错
+- 0.2.5: 增加访问媒体资料库授权状态, 用于iOS10以上版本首次播放本地视频时的回调
+- 0.2.6: 优化
+- 0.2.7: BJPPlaybackVM.h增加属性duration,initialPlaybackTime和方法-changeDefinition:

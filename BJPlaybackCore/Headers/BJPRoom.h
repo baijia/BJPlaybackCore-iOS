@@ -16,6 +16,9 @@
 
 #import "BJPMessage.h"
 
+/**
+ 播放本地视频访问媒体资料库时, 用户选择的状态, 只在iOS10以上的系统有效
+ */
 typedef NS_ENUM(NSInteger, BJPMediaLibraryAuthorizationStatus) {
     BJPMediaLibraryAuthorizationStatusNotDetermined = 0,
     BJPMediaLibraryAuthorizationStatusDenied,
@@ -31,16 +34,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface BJPRoom : NSObject
 
-#pragma mark lifecycle
-
 /**
  创建回放的room
+ 创建在线视频, 参数不可传空
+ 创建本地room的话, 两个参数传nil
 
  @param classId classId
- @param partnerId 暂时传nil
+ @param token token
  @return room
  */
-+ (instancetype)createRoomWithClassId:(NSString *)classId token:(NSString *)token;
++ (instancetype)createRoomWithClassId:(nullable NSString *)classId token:(nullable NSString *)token;
 
 /**
  播放在线视频播放 进入教室
@@ -57,11 +60,6 @@ NS_ASSUME_NONNULL_BEGIN
  @param handle 用于在iOS10以上的系统用户授权进入本地资料库, 如果版本低iOS10,不需要授权,
                即status = BJPMediaLibraryAuthorizationStatusAuthorized
  */
-- (void)enterRoomWithVideoPath:(NSString *)videoPath
-                    startVideo:(nullable NSString*)startVideo
-                      endVideo:(nullable NSString*)endVideo
-                    signalPath:(NSString *)signalPath
-                    definition:(PMVideoDefinitionType)definition __deprecated_msg("过期, 请用下面有回调的方法");
 - (void)enterRoomWithVideoPath:(NSString *)videoPath
                     startVideo:(nullable NSString*)startVideo
                       endVideo:(nullable NSString*)endVideo
@@ -99,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 //@property (nonatomic, nullable) NSArray <PBChatModel *>*chatMessageList;
 
-/** 进教室的 loading 状态 */
+/** loadingVM */
 @property (nonatomic, readonly, nullable) BJPLoadingVM *loadingVM;
 
 /** 教室id */
@@ -110,12 +108,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 在线用户 */
 @property (nonatomic, readonly, nullable) BJPOnlineUserVM *onlineUsersVM;
-
-/** 音视频 设置 */
-@property (nonatomic, readonly, nullable) BJLMediaVM *mediaVM;
-
-/** 课件管理 */
-@property (nonatomic, readonly, nullable) BJLSlideVM *slideVM;
 
 /** 课件显示 */
 @property (nonatomic, readonly, nullable) UIViewController<BJLSlideshowUI> *slideshowViewController;

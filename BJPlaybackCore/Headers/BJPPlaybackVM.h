@@ -11,9 +11,6 @@
 
 @class BJPSignalModel;
 
-//播放本地视频, 解压信令文件失败的通知
-extern const NSString *BJPSignalFileUnarchiveFild __deprecated_msg("不需要监听这个通知, 监听进入房间失败的信息");
-
 @interface BJPPlaybackVM : NSObject
 
 /**
@@ -27,9 +24,19 @@ extern const NSString *BJPSignalFileUnarchiveFild __deprecated_msg("不需要监
 @property (nonatomic, readonly) NSTimeInterval currentTime;
 
 /**
+ 视频的总时长
+ */
+@property (nonatomic, readonly) NSUInteger duration;
+
+/**
+ 初始化播放时间, 用于记忆播放, 需要在进入房间之前设置
+ */
+@property (nonatomic) NSTimeInterval initialPlaybackTime;
+
+/**
  播放控制器
  */
-@property (nonatomic) BJPlayerManager *playerControl;
+@property (nonatomic, readonly) BJPlayerManager *playerControl;
 
 /**
  当前的播放速度
@@ -102,5 +109,12 @@ extern const NSString *BJPSignalFileUnarchiveFild __deprecated_msg("不需要监
  @param vid vid
  */
 - (void)playVideoById:(NSInteger)vid;
+
+/**
+ 切换清晰度
+
+ @param dt 清晰度
+ */
+- (void)changeDefinition:(PMVideoDefinitionType)dt;
 
 @end

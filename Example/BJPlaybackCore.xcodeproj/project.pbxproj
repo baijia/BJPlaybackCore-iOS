@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		282889F31E28A96000E4B242 /* BJEnterRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 282889F21E28A96000E4B242 /* BJEnterRoomViewController.m */; };
-		28AE9B171E261112006F22B5 /* BJUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE9B161E261112006F22B5 /* BJUserViewController.m */; };
-		28AE9B1A1E26112F006F22B5 /* BJChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE9B191E26112F006F22B5 /* BJChatViewController.m */; };
+		2851D56B1E7BD62D0043BBEC /* BJEnterRoomViewController+signal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2851D5641E7BD62D0043BBEC /* BJEnterRoomViewController+signal.m */; };
+		2851D56C1E7BD62D0043BBEC /* BJEnterRoomViewController+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2851D5661E7BD62D0043BBEC /* BJEnterRoomViewController+UI.m */; };
+		2851D56D1E7BD62D0043BBEC /* BJEnterRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2851D5681E7BD62D0043BBEC /* BJEnterRoomViewController.m */; };
+		2851D5711E7BD7070043BBEC /* MBProgressHUD+bjp.m in Sources */ = {isa = PBXBuildFile; fileRef = 2851D5701E7BD7070043BBEC /* MBProgressHUD+bjp.m */; };
+		2851D5791E7BD7730043BBEC /* BJChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2851D5741E7BD7730043BBEC /* BJChatViewController.m */; };
+		2851D57A1E7BD7730043BBEC /* BJLocalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2851D5761E7BD7730043BBEC /* BJLocalTableViewController.m */; };
+		2851D57B1E7BD7730043BBEC /* BJUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2851D5781E7BD7730043BBEC /* BJUserViewController.m */; };
 		28B504DD1E1EB0BD002FF37B /* BJViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B504DC1E1EB0BD002FF37B /* BJViewController.m */; };
 		28B504DF1E1EB703002FF37B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B504DE1E1EB703002FF37B /* Launch Screen.storyboard */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -39,16 +43,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04F6F6C7E7B8D4925EC6859C /* BJPlaybackCore.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BJPlaybackCore.podspec; path = ../BJPlaybackCore.podspec; sourceTree = "<group>"; };
-		282889F21E28A96000E4B242 /* BJEnterRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJEnterRoomViewController.m; sourceTree = "<group>"; };
-		28AE9B151E261112006F22B5 /* BJUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJUserViewController.h; sourceTree = "<group>"; };
-		28AE9B161E261112006F22B5 /* BJUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJUserViewController.m; sourceTree = "<group>"; };
-		28AE9B181E26112F006F22B5 /* BJChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJChatViewController.h; sourceTree = "<group>"; };
-		28AE9B191E26112F006F22B5 /* BJChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJChatViewController.m; sourceTree = "<group>"; };
+		2851D5631E7BD62D0043BBEC /* BJEnterRoomViewController+signal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BJEnterRoomViewController+signal.h"; sourceTree = "<group>"; };
+		2851D5641E7BD62D0043BBEC /* BJEnterRoomViewController+signal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BJEnterRoomViewController+signal.m"; sourceTree = "<group>"; };
+		2851D5651E7BD62D0043BBEC /* BJEnterRoomViewController+UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BJEnterRoomViewController+UI.h"; sourceTree = "<group>"; };
+		2851D5661E7BD62D0043BBEC /* BJEnterRoomViewController+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BJEnterRoomViewController+UI.m"; sourceTree = "<group>"; };
+		2851D5671E7BD62D0043BBEC /* BJEnterRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJEnterRoomViewController.h; sourceTree = "<group>"; };
+		2851D5681E7BD62D0043BBEC /* BJEnterRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJEnterRoomViewController.m; sourceTree = "<group>"; };
+		2851D56F1E7BD7070043BBEC /* MBProgressHUD+bjp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+bjp.h"; sourceTree = "<group>"; };
+		2851D5701E7BD7070043BBEC /* MBProgressHUD+bjp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+bjp.m"; sourceTree = "<group>"; };
+		2851D5731E7BD7730043BBEC /* BJChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJChatViewController.h; sourceTree = "<group>"; };
+		2851D5741E7BD7730043BBEC /* BJChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJChatViewController.m; sourceTree = "<group>"; };
+		2851D5751E7BD7730043BBEC /* BJLocalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJLocalTableViewController.h; sourceTree = "<group>"; };
+		2851D5761E7BD7730043BBEC /* BJLocalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJLocalTableViewController.m; sourceTree = "<group>"; };
+		2851D5771E7BD7730043BBEC /* BJUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJUserViewController.h; sourceTree = "<group>"; };
+		2851D5781E7BD7730043BBEC /* BJUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJUserViewController.m; sourceTree = "<group>"; };
 		28B504DB1E1EB0BD002FF37B /* BJViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJViewController.h; sourceTree = "<group>"; };
 		28B504DC1E1EB0BD002FF37B /* BJViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJViewController.m; sourceTree = "<group>"; };
 		28B504DE1E1EB703002FF37B /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		28BB1A681E1D1F8A0041FA0C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		369A47C1B74285663B063D4C /* Pods-BJPlaybackCore_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJPlaybackCore_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BJPlaybackCore_Example/Pods-BJPlaybackCore_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* BJPlaybackCore_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BJPlaybackCore_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,7 +71,6 @@
 		6003F59B195388D20070C39A /* BJPlaybackCore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BJPlaybackCore-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* BJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BJAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* BJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BJAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* BJEnterRoomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BJEnterRoomViewController.h; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* BJPlaybackCore_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BJPlaybackCore_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -70,7 +80,6 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		6FC02493794D7E30C78767C4 /* libPods-BJPlaybackCore_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BJPlaybackCore_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7175C86BB0B44562B8FF0245 /* Pods_BJPlaybackCore_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BJPlaybackCore_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		75AA23BED58D590032C96EFC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A5111A4F5449C1BFE176A61B /* Pods-BJPlaybackCore_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJPlaybackCore_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-BJPlaybackCore_Example/Pods-BJPlaybackCore_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +109,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2851D5621E7BD62D0043BBEC /* enterRoom */ = {
+			isa = PBXGroup;
+			children = (
+				2851D5631E7BD62D0043BBEC /* BJEnterRoomViewController+signal.h */,
+				2851D5641E7BD62D0043BBEC /* BJEnterRoomViewController+signal.m */,
+				2851D5651E7BD62D0043BBEC /* BJEnterRoomViewController+UI.h */,
+				2851D5661E7BD62D0043BBEC /* BJEnterRoomViewController+UI.m */,
+				2851D5671E7BD62D0043BBEC /* BJEnterRoomViewController.h */,
+				2851D5681E7BD62D0043BBEC /* BJEnterRoomViewController.m */,
+			);
+			path = enterRoom;
+			sourceTree = "<group>";
+		};
+		2851D56E1E7BD7070043BBEC /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				2851D56F1E7BD7070043BBEC /* MBProgressHUD+bjp.h */,
+				2851D5701E7BD7070043BBEC /* MBProgressHUD+bjp.m */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		2851D5721E7BD7730043BBEC /* modules */ = {
+			isa = PBXGroup;
+			children = (
+				2851D5731E7BD7730043BBEC /* BJChatViewController.h */,
+				2851D5741E7BD7730043BBEC /* BJChatViewController.m */,
+				2851D5751E7BD7730043BBEC /* BJLocalTableViewController.h */,
+				2851D5761E7BD7730043BBEC /* BJLocalTableViewController.m */,
+				2851D5771E7BD7730043BBEC /* BJUserViewController.h */,
+				2851D5781E7BD7730043BBEC /* BJUserViewController.m */,
+			);
+			path = modules;
+			sourceTree = "<group>";
+		};
 		295D619C4C68633C84119F65 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,7 +156,6 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
-				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for BJPlaybackCore */,
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
@@ -148,15 +191,12 @@
 			children = (
 				6003F59C195388D20070C39A /* BJAppDelegate.h */,
 				6003F59D195388D20070C39A /* BJAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				28B504DB1E1EB0BD002FF37B /* BJViewController.h */,
 				28B504DC1E1EB0BD002FF37B /* BJViewController.m */,
-				6003F5A5195388D20070C39A /* BJEnterRoomViewController.h */,
-				282889F21E28A96000E4B242 /* BJEnterRoomViewController.m */,
-				28AE9B151E261112006F22B5 /* BJUserViewController.h */,
-				28AE9B161E261112006F22B5 /* BJUserViewController.m */,
-				28AE9B181E26112F006F22B5 /* BJChatViewController.h */,
-				28AE9B191E26112F006F22B5 /* BJChatViewController.m */,
+				2851D5621E7BD62D0043BBEC /* enterRoom */,
+				2851D5721E7BD7730043BBEC /* modules */,
+				2851D56E1E7BD7070043BBEC /* extension */,
+				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				28B504DE1E1EB703002FF37B /* Launch Screen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -193,16 +233,6 @@
 				606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
-			isa = PBXGroup;
-			children = (
-				04F6F6C7E7B8D4925EC6859C /* BJPlaybackCore.podspec */,
-				75AA23BED58D590032C96EFC /* LICENSE */,
-				28BB1A681E1D1F8A0041FA0C /* README.md */,
-			);
-			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +288,11 @@
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
 						DevelopmentTeam = 5EMFG9Z439;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -359,10 +394,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				28B504DD1E1EB0BD002FF37B /* BJViewController.m in Sources */,
+				2851D57A1E7BD7730043BBEC /* BJLocalTableViewController.m in Sources */,
+				2851D56D1E7BD62D0043BBEC /* BJEnterRoomViewController.m in Sources */,
+				2851D57B1E7BD7730043BBEC /* BJUserViewController.m in Sources */,
+				2851D56B1E7BD62D0043BBEC /* BJEnterRoomViewController+signal.m in Sources */,
+				2851D56C1E7BD62D0043BBEC /* BJEnterRoomViewController+UI.m in Sources */,
+				2851D5791E7BD7730043BBEC /* BJChatViewController.m in Sources */,
 				6003F59E195388D20070C39A /* BJAppDelegate.m in Sources */,
-				28AE9B1A1E26112F006F22B5 /* BJChatViewController.m in Sources */,
-				28AE9B171E261112006F22B5 /* BJUserViewController.m in Sources */,
-				282889F31E28A96000E4B242 /* BJEnterRoomViewController.m in Sources */,
+				2851D5711E7BD7070043BBEC /* MBProgressHUD+bjp.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +529,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BJPlaybackCore/BJPlaybackCore-Prefix.pch";
 				INFOPLIST_FILE = "BJPlaybackCore/BJPlaybackCore-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bjhl.BJPlaybackCore-Exam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -507,6 +547,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BJPlaybackCore/BJPlaybackCore-Prefix.pch";
 				INFOPLIST_FILE = "BJPlaybackCore/BJPlaybackCore-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bjhl.BJPlaybackCore-Exam";
 				PRODUCT_NAME = "$(TARGET_NAME)";

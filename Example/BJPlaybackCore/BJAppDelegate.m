@@ -3,7 +3,7 @@
 //  BJPlaybackCore
 //
 //  Created by 辛亚鹏 on 01/04/2017.
-//  Copyright (c) 2017 辛亚鹏. All rights reserved.
+//  Copyright © 2017 Baijia Cloud. All rights reserved.
 //
 
 #import "BJAppDelegate.h"
@@ -28,10 +28,11 @@
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
+- (void)FapplicationDidEnterBackground:(UIApplication *)application
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

@@ -3,7 +3,7 @@
 //  BJPlaybackCore
 //
 //  Created by 辛亚鹏 on 01/04/2017.
-//  Copyright (c) 2017 辛亚鹏. All rights reserved.
+//  Copyright © 2017 Baijia Cloud. All rights reserved.
 //
 
 @import UIKit;

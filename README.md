@@ -35,7 +35,7 @@ pod 'BJPlaybackCore'
 */
 + (instancetype)createRoomWithClassId:(nullable NSString *)classId token:(nullable NSString *)token;
 ```
-- 遵守<BJPMProtocol>, 设置播放器的代理
+- 遵守协议```<BJPMProtocol>```, 设置播放器的代理
 ```
 self.room.playbackVM.playerControl.delegate = self;
 
@@ -76,6 +76,7 @@ self.room.playbackVM.playerControl.delegate = self;
                       endVideo:(nullable NSString*)endVideo
                     signalPath:(NSString *)signalPath;
 ```
+- 需要把localVideo文件夹放到沙盒Library -> Caches下面, 才可以看本地视频
 - 在APP的info.plist增加媒体资料库```NSAppleMusicUsageDescription```, 用于iOS10以上系统的手机访问本地的视频和信令文件
 - iOS10以上的系统首次播放本地视频时候, 需要用户授权:
 ```

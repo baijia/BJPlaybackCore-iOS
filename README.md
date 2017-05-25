@@ -1,7 +1,5 @@
 # BJPlaybackCore
 
-==============
-
 ## 1. 集成
 
 - ```Podfile```里面设置```source```

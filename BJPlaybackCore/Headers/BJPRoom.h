@@ -3,7 +3,7 @@
 //  Pods
 //
 //  Created by 辛亚鹏 on 2016/12/14.
-//
+//  Copyright (c) 2016 Baijia Cloud. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -15,6 +15,7 @@
 #import "BJPPlaybackVM.h"
 
 #import "BJPMessage.h"
+#import "BJPMediaPublish.h"
 
 /**
  播放本地视频访问媒体资料库时, 用户选择的状态, 只在iOS10以上的系统有效
@@ -43,7 +44,19 @@ NS_ASSUME_NONNULL_BEGIN
  @param token token
  @return room
  */
-+ (instancetype)createRoomWithClassId:(nullable NSString *)classId token:(nullable NSString *)token;
++ (instancetype)onlineVideoCreateRoomWithClassId:(NSString *)classId token:(NSString *)token;
+
+/**
+ 创建本地视频的回放房间
+
+ @return room
+ */
++ (instancetype)localVideoCreateRoom;
+
+/**
+ Unavailable. Please use method: onlineCreateRoomWithClassId:token: | localVideoCreateRoom
+ */
+- (instancetype)init NS_UNAVAILABLE;
 
 /**
  播放在线视频播放 进入教室
@@ -56,7 +69,9 @@ NS_ASSUME_NONNULL_BEGIN
  @param videoPath 本地视频的路径
  @param startVideo 片头地址, 可为nil
  @param endVideo 片尾地址,可为nil
- @param path 本地信令 压缩文件的路径
+ @param path 本地信令, 根据isZip的值, 传信令文件的路径
+ @param isZip 所传信令文件是否为压缩文件, YES:传压缩的信令文件的路径
+              NO: 传解压后的信令文件, 且所传的路径的下一级目录即为all.json等数据
  @param handle 用于在iOS10以上的系统用户授权进入本地资料库, 如果版本低iOS10,不需要授权,
                即status = BJPMediaLibraryAuthorizationStatusAuthorized
  */
@@ -65,13 +80,14 @@ NS_ASSUME_NONNULL_BEGIN
                       endVideo:(nullable NSString*)endVideo
                     signalPath:(NSString *)signalPath
                     definition:(PMVideoDefinitionType)definition
+                         isZip:(BOOL)isZip
                         status:(void (^)(BJPMediaLibraryAuthorizationStatus status))handle;;
 
 /** 退出教室 */
 - (void)exit;
 
 /** 
- 成功进入教室后,
+ 进入教室
  @param error:成功进入房间, error为空, 如果有失败, error不为空
  case: 在线播放, 获取playbackVM的播放信息
  case: 本地视频, 信令文件解压完毕,并载入内存
@@ -88,6 +104,11 @@ NS_ASSUME_NONNULL_BEGIN
  聊天信息的list
  */
 - (BJLObservable)didReceiveMessageList:(NSArray <BJPMessage *> *)messageList;
+
+/**
+ media_publish
+ */
+- (BJLObservable)latestMediaPublish:(BJPMediaPublish *)mediaPublish;
 
 /** 回放的管理VM */
 @property (nonatomic, readonly, nullable) BJPPlaybackVM *playbackVM;

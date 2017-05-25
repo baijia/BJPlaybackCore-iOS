@@ -3,7 +3,7 @@
 //  Pods
 //
 //  Created by 辛亚鹏 on 2016/12/21.
-//
+//  Copyright © 2016年 Baijia Cloud. All rights reserved.
 //
 
 #import "BJLBaseVM.h"
@@ -11,12 +11,14 @@
 
 @class BJPSignalModel;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface BJPPlaybackVM : NSObject
 
 /**
  设置回放用户的标识符
  */
-@property (nonatomic) NSString *userInfo;
+@property (nonatomic, nullable) NSString *userInfo;
 
 /**
  当前的播放时间  支持KVO
@@ -36,7 +38,7 @@
 /**
  播放控制器
  */
-@property (nonatomic, readonly) BJPlayerManager *playerControl;
+@property (nonatomic, readonly, nullable) BJPlayerManager *playerControl;
 
 /**
  当前的播放速度
@@ -51,7 +53,7 @@
 /**
  信令文件的url
  */
-@property (nonatomic, readonly) BJPSignalModel *signalModel;
+@property (nonatomic, readonly, nullable) BJPSignalModel *signalModel;
 
 /**
  播放器的view
@@ -61,19 +63,17 @@
 /**
  播放信息
  */
-@property (nonatomic, readonly) PMVideoInfoModel *videoInfoModel;
+@property (nonatomic, readonly, nullable) PMVideoInfoModel *videoInfoModel;
 
 /**
  当前播放清晰度
  */
-@property (nonatomic, readonly) PMVideoDefinitionInfoModel *currDefinitionInfoModel;
+@property (nonatomic, readonly, nullable) PMVideoDefinitionInfoModel *currDefinitionInfoModel;
 
 /**
  当前播放的CDN
  */
-@property (nonatomic, readonly) PMVideoCDNInfoModel *currCDNInfoModel;
-
-
+@property (nonatomic, readonly, nullable) PMVideoCDNInfoModel *currCDNInfoModel;
 
 /**
  play
@@ -118,3 +118,5 @@
 - (void)changeDefinition:(PMVideoDefinitionType)dt;
 
 @end
+
+NS_ASSUME_NONNULL_END

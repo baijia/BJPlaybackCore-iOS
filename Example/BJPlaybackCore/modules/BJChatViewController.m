@@ -9,9 +9,6 @@
 #import "BJChatViewController.h"
 #import "UIImageView+WebCache.h"
 
-@interface BJChatViewController ()
-
-@end
 
 @implementation BJChatViewController
 
@@ -40,12 +37,29 @@
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"chatCell"];
     cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.text = message.userName;
-    cell.detailTextLabel.text = message.content;
+    cell.textLabel.text = message.fromUser.name;
+    //    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:message.fromUser.avatar]];
+    switch (message.type) {
+        case BJLMessageType_text:
+            cell.detailTextLabel.text = message.text;
+            break;
+            
+        case BJLMessageType_emoticon:
+            
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:message.emoticon.urlString]];
+            break;
+            
+        case BJLMessageType_image:
+            NSLog(@"imageH = %f, imageW = %f", message.imageHeight, message.imageWidth);
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:message.imageURLString]];
+            break;
+            
+        default:
+            break;
+    }
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.detailTextLabel.textColor = [UIColor whiteColor];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:message.userAvatar]];
-
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
@@ -54,4 +68,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 30.f;
 }
+
+#pragma mark -
+- (NSMutableArray<BJPMessage *> *)chatList {
+    if (!_chatList) {
+        _chatList = [NSMutableArray array];
+    }
+    return _chatList;
+}
+
 @end

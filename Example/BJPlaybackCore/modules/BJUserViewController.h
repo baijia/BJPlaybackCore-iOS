@@ -11,6 +11,6 @@
 
 @interface BJUserViewController : UITableViewController
 
-@property (nonatomic) NSArray<NSObject<BJLOnlineUser> *> *userList;
+@property (nonatomic) NSArray<BJLOnlineUser *> *userList;
 
 @end

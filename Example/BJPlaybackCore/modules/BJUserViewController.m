@@ -34,7 +34,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"userCell" forIndexPath:indexPath];
-    NSObject<BJLOnlineUser> *user = self.userList[indexPath.row];
+    BJLOnlineUser *user = self.userList[indexPath.row];
     cell.textLabel.text = user.name;
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.avatar]];
     

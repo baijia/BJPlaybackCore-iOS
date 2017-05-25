@@ -14,20 +14,28 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - BJHL-AVSDK-iOS (0.1.10)
-  - BJHL-Foundation-iOS (1.2.11):
-    - CocoaLumberjack (~> 2.0)
-  - BJHL-VideoPlayer-Manager (0.2.8):
+  - BJHL-Foundation-iOS (1.2.12)
+  - BJHL-VideoPlayer-Manager (0.2.10.1):
     - AFNetworking
-    - BJHL-Foundation-iOS
     - BJVideoPlayer
     - LogStat
     - Reachability
     - YYModel
   - BJHL-Websocket-iOS (0.3.2):
     - PocketSocket
-  - BJLiveCore (0.2.4.1):
-    - BJHL-AVSDK-iOS (>= 0.1.10)
+  - BJLiveCore (0.3.0-dylib04):
+    - BJHL-Foundation-iOS
+    - BJHL-Websocket-iOS (>= 0.3.2)
+    - BJLiveCore/BJHLMediaPlayer (= 0.3.0-dylib04)
+    - JRSwizzle
+    - libextobjc/EXTScope
+    - LKDBHelper
+    - LogStat
+    - LTInfiniteScrollView
+    - ReactiveCocoa (~> 2.0)
+    - SDWebImage
+    - YYModel
+  - BJLiveCore/BJHLMediaPlayer (0.3.0-dylib04):
     - BJHL-Foundation-iOS
     - BJHL-Websocket-iOS (>= 0.3.2)
     - JRSwizzle
@@ -38,24 +46,16 @@ PODS:
     - ReactiveCocoa (~> 2.0)
     - SDWebImage
     - YYModel
-  - BJPlaybackCore (0.2.7.1):
+  - BJPlaybackCore (0.2.9):
     - AFNetworking
     - BJHL-Foundation-iOS
-    - BJHL-VideoPlayer-Manager (= 0.2.8)
-    - BJLiveCore (= 0.2.4.1)
+    - BJHL-VideoPlayer-Manager (= 0.2.10.1)
+    - BJLiveCore (= 0.3.0-dylib04)
     - LogStat
     - NVHTarGzip
     - ReactiveCocoa
     - YYModel
   - BJVideoPlayer (0.0.18)
-  - CocoaLumberjack (2.4.0):
-    - CocoaLumberjack/Default (= 2.4.0)
-    - CocoaLumberjack/Extensions (= 2.4.0)
-  - CocoaLumberjack/Core (2.4.0)
-  - CocoaLumberjack/Default (2.4.0):
-    - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.4.0):
-    - CocoaLumberjack/Default
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
@@ -63,7 +63,7 @@ PODS:
   - libextobjc/EXTScope (0.4.1):
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
-  - LKDBHelper (2.4.1):
+  - LKDBHelper (2.4.2):
     - FMDB
   - LogStat (0.6.0):
     - AFNetworking
@@ -103,18 +103,16 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  BJHL-AVSDK-iOS: 93c943b025561a9929ef5807cb2282bf407decc3
-  BJHL-Foundation-iOS: 2e7d9269405c036111c32b4ecd0a06e9ecb4e00e
-  BJHL-VideoPlayer-Manager: 3ba6291bf0b02d036871592aed75e02b564ab2af
+  BJHL-Foundation-iOS: c8d795787524a8f27edb4694dd78794bc2fca450
+  BJHL-VideoPlayer-Manager: 766733226754cbc53936c129145e5203851912e6
   BJHL-Websocket-iOS: d268c2d08cb22d461a0b961781566e488c004c1d
-  BJLiveCore: 66cd8e4b4d6d22052fc963576e32161c25db45a4
-  BJPlaybackCore: 75231ac19b435fab2134538eb4b157ad3d86d41c
+  BJLiveCore: 9c8cf353c9669e8e9d1149b93c5c4806008efe9a
+  BJPlaybackCore: 20c351a84570f8394de740bda0151597c6bdc438
   BJVideoPlayer: f4cefd6ec75fd7714897d239a875224e8581d205
-  CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
-  LKDBHelper: 531581fa6a7d0f14236cc028ce0d277bca73436a
+  LKDBHelper: ab67373b32f47463bf5f838d730f225824f4492a
   LogStat: b3af561bbe5691bdd8df624a3e570419e5b30f9f
   LTInfiniteScrollView: 6ce2fcaf6d030a9e45a164ba9dcdb1b325a30d03
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -126,6 +124,6 @@ SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 43c74f5e37ee8fb64adeb65070dd07aef7c04b69
+PODFILE CHECKSUM: 352559b6a614c939855fd5468cc4f6aed87378cb
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

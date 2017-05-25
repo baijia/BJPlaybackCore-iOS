@@ -31,7 +31,7 @@
     [self bjl_observe:BJLMakeMethod(self.room, roomDidEnterWithError:)
              observer:^BOOL(BJLError *error) {
                  if (error) {
-//                     NSLog(@"roomDidEnterWithError ==> error = %@", error);
+                     //                     NSLog(@"roomDidEnterWithError ==> error = %@", error);
                      [MBProgressHUD bjp_showMessageThenHide:[error description] toView:self.view onHide:nil];
                      
                  }
@@ -39,16 +39,16 @@
              }];
     [self bjl_observe:BJLMakeMethod(self.room, roomWillExitWithError:)
              observer:^BOOL(BJLError *error) {
-//                 @strongify(self);
-//                 NSLog(@"roomWillExitWithError ==> error = %@", error);
+                 //                 @strongify(self);
+                 //                 NSLog(@"roomWillExitWithError ==> error = %@", error);
                  [MBProgressHUD bjp_showMessageThenHide:[error description] toView:self.view onHide:nil];
                  return YES;
              }];
-
+    
     [self bjl_observe:BJLMakeMethod(self.room, roomDidExitWithError:)
              observer:^BOOL(BJLError *error) {
                  //                 @strongify(self);
-//                 NSLog(@"roomDidExitWithError ==> error = %@", error);
+                 //                 NSLog(@"roomDidExitWithError ==> error = %@", error);
                  [MBProgressHUD bjp_showMessageThenHide:[error description] toView:self.view onHide:nil];
                  return YES;
              }];
@@ -56,9 +56,21 @@
     [self bjl_observe:BJLMakeMethod(self.room, didReceiveMessageList:)
              observer:^BOOL(NSArray<BJPMessage *> *messageArray){
                  @strongify(self);
-                 self.chatCtrl.chatList = messageArray;
+                 //                 self.chatCtrl.chatList = messageArray;
+                 if (messageArray.count > 0) {
+                     for (BJPMessage *msg in messageArray) {
+                         [self.chatCtrl.chatList addObject:msg];
+                     }
+                 }
                  [self.chatCtrl.tableView reloadData];
                  //                 NSLog(@"self.chatCtrl.chatList = %@", self.chatCtrl.chatList);
+                 return YES;
+             }];
+    
+    [self bjl_observe:BJLMakeMethod(self.room, latestMediaPublish:)
+             observer:^BOOL(BJPMediaPublish *mediaPublish){
+                 //                 @strongify(self);
+                 //                 NSLog(@"mediaPublish.offsetTimestamp === %li", mediaPublish.offsetTimestamp);
                  return YES;
              }];
 }
@@ -74,13 +86,15 @@
              }];
     
     [self bjl_observe:BJLMakeMethod(self.room.onlineUsersVM, onlineUserList:)
-             observer:^BOOL(NSArray <NSObject<BJLOnlineUser> *> *userList){
+             observer:^BOOL(NSArray <BJLOnlineUser *> *userList){
                  @strongify(self);
                  self.userCtrl.userList = userList;
                  [self.userCtrl.tableView reloadData];
                  return YES;
              }];
     [self bjl_kvo:BJLMakeProperty(self.room.playbackVM, currentTime) observer:^BOOL(NSNumber * _Nullable old, NSNumber *  _Nullable now) {
+        
+        //        NSLog(@"old = %@ \n===============*********=============\n now = %@", old, now);
         CGFloat time = [now floatValue];
         CGFloat duration = self.room.playbackVM.duration;
         self.currentTimeLabel.text = [self timeWithTime:time];
@@ -104,9 +118,9 @@
             [self.room.playbackVM playerPlay];
         }
     }];
-//    UIControlEventTouchUpInside 表示手指抬起的动作
+    //    UIControlEventTouchUpInside 表示手指抬起的动作
     [[self.progressSlider rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UISlider *slider) {
-       @strongify(self);
+        @strongify(self);
         double currentTime = self.room.playbackVM.duration * slider.value;
         [self.room.playbackVM playerSeekToTime:currentTime];
         self.currentTimeLabel.text = [self timeWithTime:currentTime];
@@ -179,7 +193,7 @@
     }];
 }
 
-#pragma mark - 
+#pragma mark -
 - (NSString *)timeWithSecond:(CGFloat)second {
     return [self timeWithTime:second];
 }
@@ -187,7 +201,7 @@
 #pragma mark - private method
 
 - (NSString *)timeWithTime:(CGFloat)time {
-//    3753 == 1:02:33   33 + 120 + 3600
+    //    3753 == 1:02:33   33 + 120 + 3600
     NSUInteger uTime = (NSUInteger)time;
     NSUInteger hour = uTime / 3660;
     NSUInteger min;

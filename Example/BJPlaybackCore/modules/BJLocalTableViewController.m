@@ -32,7 +32,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     cell.textLabel.font = [UIFont systemFontOfSize:12];
-    cell.textLabel.text = @"将localVideo的文件夹放到沙盒的Caches目录下面";
+    cell.textLabel.text = @"请将localVideo的文件夹放到真机沙盒的Caches目录下面";
     return cell;
 }
 

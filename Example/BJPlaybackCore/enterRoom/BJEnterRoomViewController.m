@@ -80,7 +80,7 @@
                                                object:nil];
     
     //如果是播放本地视频  创建房间2个参数可以传nil
-    self.room = [BJPRoom createRoomWithClassId:_classId token:_token];
+    self.room = [BJPRoom onlineVideoCreateRoomWithClassId:_classId token:_token];
     
     // 设置需要上报的userInfo
     [self.room.playbackVM setUserInfo:_userInfo];
@@ -98,13 +98,13 @@
 }
 
 - (void)localEnterRoom {
-    self.room = [BJPRoom createRoomWithClassId:nil token:nil];
+    self.room = [BJPRoom localVideoCreateRoom];
     self.room.playbackVM.playerControl.delegate = self;
     
     //!!!: 记忆播放:需要在进入房间之前, 将上次播放的时间赋值给initialPlaybackTime
 //    self.room.playbackVM.initialPlaybackTime = 200;
     
-    [self.room enterRoomWithVideoPath:self.videoPath startVideo:nil endVideo:nil signalPath:self.signalPath definition:DT_LOW status:^(BJPMediaLibraryAuthorizationStatus status) {
+    [self.room enterRoomWithVideoPath:self.videoPath startVideo:nil endVideo:nil signalPath:self.signalPath definition:DT_LOW isZip:NO status:^(BJPMediaLibraryAuthorizationStatus status) {
         if (status != BJPMediaLibraryAuthorizationStatusAuthorized) {
             NSString *str = @"请到设置 -> 隐私 -> 媒体资料库 中打开 本APP的选项, 否则无法看本地视频";
             NSLog(@"%@", str);

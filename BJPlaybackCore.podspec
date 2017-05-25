@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   s.dependency 'AFNetworking'
   s.dependency 'BJHL-Foundation-iOS'
   s.dependency 'BJLiveCore', '0.3.0-dylib04'
-  s.dependency 'BJHL-VideoPlayer-Manager', '0.2.10'
+  s.dependency 'BJHL-VideoPlayer-Manager', '0.2.10.1'
   s.dependency 'LogStat'
   s.dependency 'YYModel'
 

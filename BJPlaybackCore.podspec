@@ -1,13 +1,17 @@
 Pod::Spec.new do |s|
   s.name         = "BJPlaybackCore"
-  s.version      = "0.2.10-dylib02"
+  s.version      = "0.2.7.6"
   s.summary      = "BJPlaybackCore SDK."
   s.license      = "MIT"
   s.author       = { "辛亚鹏" => "xinyapeng@baijiahulian.com" }
   s.homepage     = "http://www.baijiacloud.com/"
   s.description = 'BJPlaybackCore SDK for iOS.'
+  s.requires_arc = true
 
   s.platform     = :ios, "8.0"
+  s.frameworks = ['CoreGraphics', 'Foundation', 'UIKit']
+
+  # s.ios.vendored_frameworks = 'BJPlaybackCore-#{s.version}/BJPlaybackCore.framework'    
   
   # http
   # s.source       = { :git => "http://git.baijia.com/iOS/BJPlaybackCore.git", :tag => "#{s.version}" }
@@ -18,32 +22,20 @@ Pod::Spec.new do |s|
   
   # git
   s.source = { :git => 'https://github.com/baijia/BJPlaybackCore-iOS.git', :tag => s.version.to_s }
-
-  # # framework
-  s.ios.preserve_paths      = 'BJPlaybackCore/BJPlaybackCore.framework'
-  s.ios.public_header_files = 'BJPlaybackCore/BJPlaybackCore.framework/Versions/A/Headers/**/*.h'
-  s.ios.source_files        = 'BJPlaybackCore/BJPlaybackCore.framework/Versions/A/Headers/**/*.h'
-  # s.ios.resource          = 'BJPlaybackCore/BJPlaybackCore.framework/Versions/A/Resources/**/*'
-  s.ios.vendored_frameworks = 'BJPlaybackCore/BJPlaybackCore.framework'
-  
-  # # library
-  #  s.public_header_files = 'BJPlaybackCore/**/*.h'
-  #  s.source_files = 'BJPlaybackCore/**/*.h'
-  #  s.vendored_libraries = 'BJPlaybackCore/**/*.a'
-  
-  s.frameworks = ['CoreGraphics', 'Foundation', 'UIKit']
-  s.requires_arc = true
-  s.xcconfig     = { "ENABLE_BITCODE" => "NO", "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES" }
+  s.public_header_files = 'BJPlaybackCore/**/*.h'
+  s.source_files = 'BJPlaybackCore/**/*.h'
+  s.vendored_libraries = 'BJPlaybackCore/**/*.a'
+#  s.resources = 'BJPlaybackCore/**/*.bundle'
   
   s.dependency 'AFNetworking'
-  s.dependency 'BJLiveCore', '~> 0.4.0'
-  s.dependency 'BJPlayerManagerCore', '~> 0.3.6'
-  s.dependency 'BJVideoPlayer' #, '0.0.19'
-  s.dependency 'LogStat', '0.6.6'
+  s.dependency 'BJHL-Foundation-iOS'
+  s.dependency 'BJLiveCore', '0.3.0-dylib04'
+  s.dependency 'BJHL-VideoPlayer-Manager', '0.2.10.1'
+  s.dependency 'LogStat'
   s.dependency 'YYModel'
 
   # DEPRECATED
   s.dependency 'NVHTarGzip'
-  s.dependency 'ReactiveObjC'
+  s.dependency 'ReactiveCocoa'
 
 end

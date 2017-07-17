@@ -28,10 +28,10 @@ Pod::Spec.new do |s|
 #  s.resources = 'BJPlaybackCore/**/*.bundle'
   
   s.dependency 'AFNetworking'
-  s.dependency 'BJHL-Foundation-iOS'
-  s.dependency 'BJLiveCore', '0.3.0-dylib04'
-  s.dependency 'BJHL-VideoPlayer-Manager', '0.2.10.1'
-  s.dependency 'LogStat'
+  #s.dependency 'BJHL-Foundation-iOS'
+  s.dependency 'BJLiveCore', '0.2.4-dylib04'
+  s.dependency 'BJPlayerManagerCore'
+  s.dependency 'LogStat','0.6.6'
   s.dependency 'YYModel'
 
   # DEPRECATED

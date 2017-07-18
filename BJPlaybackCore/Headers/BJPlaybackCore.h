@@ -3,7 +3,7 @@
 //  Pods
 //
 //  Created by 辛亚鹏 on 2017/1/4.
-//
+//  Copyright (c) 2017 Baijia Cloud. All rights reserved.
 //
 
 #ifndef Header_h

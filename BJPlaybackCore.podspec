@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
 #  s.resources = 'BJPlaybackCore/**/*.bundle'
   
   s.dependency 'AFNetworking'
-  s.dependency 'BJLiveCore', ~> 0.5.0-beta'
+  s.dependency 'BJLiveCore', '~> 0.5.0-beta'
   s.dependency 'BJPlayerManagerCore'
   s.dependency 'LogStat'
   s.dependency 'YYModel'

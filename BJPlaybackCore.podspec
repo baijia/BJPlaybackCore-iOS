@@ -28,9 +28,9 @@ Pod::Spec.new do |s|
 #  s.resources = 'BJPlaybackCore/**/*.bundle'
   
   s.dependency 'AFNetworking'
-  s.dependency 'BJLiveCore', '~> 0.4.0'
+  s.dependency 'BJLiveCore', ~> 0.5.0-beta'
   s.dependency 'BJPlayerManagerCore'
-  s.dependency 'LogStat','0.6.6'
+  s.dependency 'LogStat'
   s.dependency 'YYModel'
 
   # DEPRECATED

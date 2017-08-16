@@ -6,7 +6,6 @@
 //  Copyright © 2016年 Baijia Cloud. All rights reserved.
 //
 
-#import "BJLBaseVM.h"
 //#import <BJHL-VideoPlayer-Manager/BJHL-VideoPlayer-Manager.h>
 #import <BJPlayerManagerCore/BJPlayerManagerCore.h>
 

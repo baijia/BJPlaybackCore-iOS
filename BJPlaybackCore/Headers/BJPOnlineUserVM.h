@@ -8,9 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "BJLUser.h"
-#import "NSObject+BJLObserving.h"
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BJPOnlineUserVM : NSObject

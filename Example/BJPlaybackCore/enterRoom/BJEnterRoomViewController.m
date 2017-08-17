@@ -7,11 +7,11 @@
 //
 
 #import "BJEnterRoomViewController.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 #import <BJLiveCore/BJLiveCore.h>
 #import <BJLiveCore/NSObject+BJLObserving.h>
 #import <Masonry/Masonry.h>
-#import <BJHL-VideoPlayer-Manager/PMNotification.h>
+#import <BJPlayerManagerCore/BJPlayerManagerCore.h>
 
 #import "BJEnterRoomViewController+UI.h"
 #import "BJEnterRoomViewController+signal.h"
@@ -104,7 +104,7 @@
     //!!!: 记忆播放:需要在进入房间之前, 将上次播放的时间赋值给initialPlaybackTime
 //    self.room.playbackVM.initialPlaybackTime = 200;
     
-    [self.room enterRoomWithVideoPath:self.videoPath startVideo:nil endVideo:nil signalPath:self.signalPath definition:DT_LOW isZip:NO status:^(BJPMediaLibraryAuthorizationStatus status) {
+    [self.room enterRoomWithVideoPath:self.videoPath signalPath:self.signalPath definition:DT_LOW isZip:NO status:^(BJPMediaLibraryAuthorizationStatus status) {
         if (status != BJPMediaLibraryAuthorizationStatusAuthorized) {
             NSString *str = @"请到设置 -> 隐私 -> 媒体资料库 中打开 本APP的选项, 否则无法看本地视频";
             NSLog(@"%@", str);

@@ -8,8 +8,7 @@ target 'BJPlaybackCore_Example' do
   
   pod 'BJPlaybackCore'
   pod 'Masonry'
-  pod ‘ReactiveCocoa’, ‘~>2.0’
-  pod ‘SDWebImage’
+  pod 'SDWebImage'
   pod 'MBProgressHUD'
   
 end

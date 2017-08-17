@@ -6,7 +6,7 @@
 //  Copyright © 2017 Baijia Cloud. All rights reserved.
 //
 #import <Masonry/Masonry.h>
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 
 #import "BJViewController.h"
 #import "BJEnterRoomViewController.h"
@@ -37,7 +37,7 @@ static NSString *playBackIsWWW = @"playBackIsWWW";
 
 - (void)setuptokenTextField {
 
-    NSString *token = @"x3lrh3W_9wCNcup-z1nfaxMj3LSXFJTfsAxJY2RhpaUxuSba8SBafg";
+    NSString *token = @"VH5U10BYUnYnHUgIx1LUhL1XaGz5F5g5LlfYUxrn32BkXznTgqe6Ig";
     self.tokenTextField = [self textFieldwithContent:token leftLabelText:@"token: "];
     
     [self.view addSubview:self.tokenTextField];
@@ -51,7 +51,7 @@ static NSString *playBackIsWWW = @"playBackIsWWW";
 
 - (void)setupClassIdTextField {
 
-    NSString *classId = @"17040750013898";
+    NSString *classId = @"17072681390265";
     self.classIdTextField = [self textFieldwithContent:classId leftLabelText:@"教室id: "];
     [self.view addSubview:self.classIdTextField];
     

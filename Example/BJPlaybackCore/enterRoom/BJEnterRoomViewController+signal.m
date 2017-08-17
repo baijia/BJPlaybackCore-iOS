@@ -9,7 +9,7 @@
 #import "BJEnterRoomViewController+signal.h"
 #import "MBProgressHUD+bjp.h"
 
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 
 @implementation BJEnterRoomViewController (signal)

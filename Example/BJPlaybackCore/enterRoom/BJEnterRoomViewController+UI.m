@@ -8,7 +8,7 @@
 
 #import "BJEnterRoomViewController+UI.h"
 #import <Masonry/Masonry.h>
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 
 @implementation BJEnterRoomViewController (UI)
 

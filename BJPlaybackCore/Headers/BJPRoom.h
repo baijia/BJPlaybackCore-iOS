@@ -17,6 +17,8 @@
 #import "BJPMessage.h"
 #import "BJPMediaPublish.h"
 
+#import "BJPPlaybackCoreMacro.h"
+
 /**
  播放本地视频访问媒体资料库时, 用户选择的状态, 只在iOS10以上的系统有效
  */
@@ -39,12 +41,16 @@ NS_ASSUME_NONNULL_BEGIN
  创建回放的room
  创建在线视频, 参数不可传空
  创建本地room的话, 两个参数传nil
-
+ 
  @param classId classId
+ @param sessionId sessionId, 长期房间回放参数. 如果classId对应的课程不是长期房间,可不传;
+                  如果classId对应的课程是长期房间, 不传则默认返回长期房间的第一个课程
  @param token token
  @return room
  */
-+ (instancetype)onlineVideoCreateRoomWithClassId:(NSString *)classId token:(NSString *)token;
++ (instancetype)onlineVideoCreateRoomWithClassId:(NSString *)classId sessionId:(nullable NSString *)sessionId token:(NSString *)token;
+
++ (instancetype)onlineVideoCreateRoomWithClassId:(NSString *)classId token:(NSString *)token BJP_Will_DEPRECATED("+onlineVideoCreateRoomWithClassId:sessionId:token:");
 
 /**
  创建本地视频的回放房间

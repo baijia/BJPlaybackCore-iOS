@@ -7,6 +7,7 @@
 //  聊天信息
 
 #import <Foundation/Foundation.h>
+#import <BJLiveCore/BJliveCore.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

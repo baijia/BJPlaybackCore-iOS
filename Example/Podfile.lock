@@ -14,39 +14,39 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - BJLiveCore (0.4.0):
+  - BJLiveCore (0.4.1):
     - AFNetworking (~> 3.0)
-    - BJLiveCore/BJHLMediaPlayer (= 0.4.0)
+    - BJLiveCore/BJHLMediaPlayer (= 0.4.1)
     - JRSwizzle
     - libextobjc/EXTScope
-    - LogStat (~> 0.6.6)
+    - LogStat (~> 0.7.0)
     - PocketSocket
     - ReactiveObjC
     - SDWebImage
     - YYModel
-  - BJLiveCore/BJHLMediaPlayer (0.4.0):
+  - BJLiveCore/BJHLMediaPlayer (0.4.1):
     - AFNetworking (~> 3.0)
     - JRSwizzle
     - libextobjc/EXTScope
-    - LogStat (~> 0.6.6)
+    - LogStat (~> 0.7.0)
     - PocketSocket
     - ReactiveObjC
     - SDWebImage
     - YYModel
-  - BJPlaybackCore (0.3.1.1):
+  - BJPlaybackCore (0.3.5):
     - AFNetworking
     - BJLiveCore
     - BJPlayerManagerCore
-    - LogStat (= 0.6.6)
+    - LogStat
     - NVHTarGzip
     - ReactiveObjC
     - YYModel
-  - BJPlayerManagerCore (0.4.0):
+  - BJPlayerManagerCore (0.4.1):
     - AFNetworking
     - BJVideoPlayer
     - LogStat
     - YYModel
-  - BJVideoPlayer (0.0.21)
+  - BJVideoPlayer (0.0.22)
   - FMDB (2.7.2):
     - FMDB/standard (= 2.7.2)
   - FMDB/standard (2.7.2)
@@ -54,13 +54,9 @@ PODS:
   - libextobjc/EXTScope (0.4.1):
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
-  - LKDBHelper (2.4.4):
-    - LKDBHelper/standard (= 2.4.4)
-  - LKDBHelper/standard (2.4.4):
-    - FMDB
-  - LogStat (0.6.6):
+  - LogStat (0.7.0):
     - AFNetworking
-    - LKDBHelper
+    - FMDB
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
   - NVHTarGzip (1.0.1)
@@ -87,15 +83,14 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  BJLiveCore: a3e9471cb978f3135ff530ad223401635fd643c3
-  BJPlaybackCore: e9c5ead81cd62a8b2a90c522b205585df4c740b9
-  BJPlayerManagerCore: fd3f7f01c63486437bc506478fd23c1acf74ca6e
-  BJVideoPlayer: 90c78655891ae6aa3a4729ec0f7f31f286d3c9d2
+  BJLiveCore: 22c5df8a00ced36b12be973c8bc2b4d2f6a8a693
+  BJPlaybackCore: b5ef7dd9850a142dad999f055563d9446857c72e
+  BJPlayerManagerCore: cef0e73fb518a7091c2ce03bdbcaeda5054b1aa0
+  BJVideoPlayer: 279aff5463da197b61d6b2ab0c9b7491af237fea
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
-  LKDBHelper: cf467ff69aaf1e13bd4964aca3a79881d54c6d14
-  LogStat: 62094776744429f4a84d2e850f7999bd04713036
+  LogStat: 7c3dc8b58894749aa37188a88efcbb53f464162e
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   NVHTarGzip: 74cc227b902e5725900d37eb6d79b57e93005a73

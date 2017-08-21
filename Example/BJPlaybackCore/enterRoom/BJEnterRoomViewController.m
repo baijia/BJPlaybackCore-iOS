@@ -32,6 +32,7 @@
 }
 
 + (instancetype)enterRoomWithClassId:(NSString *)classId
+                           sessionId:(NSString *_Nullable)sessionId
                            token:(NSString *)token
                             userInfo:(NSString *)userInfo
 
@@ -80,7 +81,7 @@
                                                object:nil];
     
     //如果是播放本地视频  创建房间2个参数可以传nil
-    self.room = [BJPRoom onlineVideoCreateRoomWithClassId:_classId token:_token];
+    self.room = [BJPRoom onlineVideoCreateRoomWithClassId:_classId sessionId:_sessionId token:_token];
     
     // 设置需要上报的userInfo
     [self.room.playbackVM setUserInfo:_userInfo];

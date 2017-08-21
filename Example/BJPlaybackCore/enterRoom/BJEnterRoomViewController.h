@@ -12,10 +12,13 @@
 #import "BJUserViewController.h"
 #import "BJChatViewController.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface BJEnterRoomViewController : UIViewController
 
 @property (nonatomic) NSString *classId, *token, *userInfo;
 @property (nonatomic) NSString *videoPath, *signalPath;
+@property (nonatomic, nullable) NSString *sessionId;
 
 @property (nonatomic) UIView *playerView, *bottomContentView;
 @property (nonatomic) UISlider *progressSlider;
@@ -33,6 +36,7 @@
 
 //在线
 + (instancetype)enterRoomWithClassId:(NSString *)classId
+                           sessionId:(NSString *_Nullable)sessionId
                            token:(NSString *)token
                             userInfo:(NSString *)userInfo;
 
@@ -42,3 +46,5 @@
                                    userInfo:(NSString *)userInfo;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -6,7 +6,7 @@
 //  Copyright © 2016年 Baijia Cloud. All rights reserved.
 //
 
-#import "BJLBaseVM.h"
+#import <BJLiveCore/BJLBaseVM.h>
 #import <BJPlayerManagerCore/BJPlayerManagerCore.h>
 
 @class BJPSignalModel;

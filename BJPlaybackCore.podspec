@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BJPlaybackCore"
-  s.version      = "0.3.4"
+  s.version      = "0.3.5"
   s.summary      = "BJPlaybackCore SDK."
   s.license      = "MIT"
   s.author       = { "辛亚鹏" => "xinyapeng@baijiahulian.com" }
@@ -36,8 +36,5 @@ Pod::Spec.new do |s|
   # DEPRECATED
   s.dependency 'NVHTarGzip'
   s.dependency 'ReactiveObjC'
-  
-  s.prefix_header_contents =
-    '#import <BJLiveCore/BJLiveCore.h>'
-
+ 
 end

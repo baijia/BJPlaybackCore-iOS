@@ -10,5 +10,11 @@
 #define Header_h
 
 #import "BJPRoom.h"
+#import "BJPLoadingVM.h"
+#import "BJPOnlineUserVM.h"
+#import "BJPPlaybackVM.h"
+
+#import "BJPMediaPublish.h"
+#import "BJPMediaPublish.h"
 
 #endif /* Header_h */

@@ -129,6 +129,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 教室信息、状态，用户信息，公告等 */
 @property (nonatomic, readonly, nullable) BJLRoomVM *roomVM;
 
+/** 是否是本地视频 */
+@property (nonatomic, readonly) BOOL *isLocalVideo;
+
 /** 在线用户 */
 @property (nonatomic, readonly, nullable) BJPOnlineUserVM *onlineUsersVM;
 

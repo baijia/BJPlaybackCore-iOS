@@ -198,8 +198,6 @@
     return [self timeWithTime:second];
 }
 
-#pragma mark - private method
-
 - (NSString *)timeWithTime:(CGFloat)time {
     //    3753 == 1:02:33   33 + 120 + 3600
     NSUInteger uTime = (NSUInteger)time;

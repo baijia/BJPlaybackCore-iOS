@@ -229,6 +229,8 @@
 - (void)playbackFinish:(NSNotification *)noti {
     
     self.playButton.selected = YES;
+    self.progressSlider.value = 0;
+    self.currentTimeLabel.text = [self timeWithTime:0];
     
     PKMovieFinishReason reason = [[noti.userInfo objectForKey:PKMoviePlayerPlaybackDidFinishReasonUserInfoKey] integerValue];
     NSString *error = [noti.userInfo objectForKey:@"error"];

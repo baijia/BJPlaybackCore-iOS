@@ -19,4 +19,6 @@
 //将秒数转化为 12:45:18 格式
 - (NSString *)timeWithSecond:(CGFloat)second;
 
+- (NSString *)timeWithTime:(CGFloat)time;
+
 @end

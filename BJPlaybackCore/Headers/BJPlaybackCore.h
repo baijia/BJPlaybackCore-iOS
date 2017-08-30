@@ -15,6 +15,8 @@
 #import "BJPPlaybackVM.h"
 
 #import "BJPMediaPublish.h"
-#import "BJPMediaPublish.h"
+#import "BJPMessage.h"
+
+#import "NSDictionary+BJPDataValue.h"
 
 #endif /* Header_h */

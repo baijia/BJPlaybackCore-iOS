@@ -28,7 +28,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  视频的总时长
  */
-@property (nonatomic, readonly) NSUInteger duration;
+@property (nonatomic, readonly) NSTimeInterval duration;
+
+/**
+ 已经缓存的时长
+ */
+@property (nonatomic, readonly) NSTimeInterval playableDuration;
 
 /**
  初始化播放时间, 用于记忆播放, 需要在进入房间之前设置

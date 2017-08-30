@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BJPRoom : NSObject
 
 /**
- 创建回放的room
+ 创建在线回放的room
  创建在线视频, 参数不可传空
  创建本地room的话, 两个参数传nil
  
@@ -50,47 +50,39 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)onlineVideoCreateRoomWithClassId:(NSString *)classId sessionId:(nullable NSString *)sessionId token:(NSString *)token;
 
-+ (instancetype)onlineVideoCreateRoomWithClassId:(NSString *)classId token:(NSString *)token BJP_Will_DEPRECATED("+onlineVideoCreateRoomWithClassId:sessionId:token:");
-
 /**
- 创建本地视频的回放房间
-
- @return room
+ 创建本地视频  进入房间
+ 
+ @param videoPath 本地视频的路径
+ @param signalPath 本地信令, 根据isZip的值, 传信令文件的路径
+ @param isZip 所传信令文件是否为压缩文件, YES:传压缩的信令文件的路径
+ NO: 传解压后的信令文件, 且所传的路径的下一级目录即为all.json等数据
+ @param handle 用于在iOS10以上的系统用户授权进入本地资料库, 如果版本低iOS10,不需要授权,
+ 即status = BJPMediaLibraryAuthorizationStatusAuthorized
  */
-+ (instancetype)localVideoCreateRoom;
++ (instancetype)localVideoCreatRoomWithVideoPath:(NSString *)videoPath
+                                      signalPath:(NSString *)signalPath
+                                      definition:(PMVideoDefinitionType)definition
+                                           isZip:(BOOL)isZip
+                                          status:(void (^)(BJPMediaLibraryAuthorizationStatus status))handle;
 
 /**
- Unavailable. Please use method: onlineCreateRoomWithClassId:token: | localVideoCreateRoom
+ Unavailable. Please use method: onlineCreateRoomWithClassId:token: | localVideoCreatRoomWithVideoPath:signalPath:definition:isZip:
  */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
- 播放在线视频播放 进入教室
+ 进入教室
  */
 - (void)enter;
 
-/**
- 播放本地视频  进入房间
-
- @param videoPath 本地视频的路径
- @param path 本地信令, 根据isZip的值, 传信令文件的路径
- @param isZip 所传信令文件是否为压缩文件, YES:传压缩的信令文件的路径
-              NO: 传解压后的信令文件, 且所传的路径的下一级目录即为all.json等数据
- @param handle 用于在iOS10以上的系统用户授权进入本地资料库, 如果版本低iOS10,不需要授权,
-               即status = BJPMediaLibraryAuthorizationStatusAuthorized
- */
-- (void)enterRoomWithVideoPath:(NSString *)videoPath
-                    signalPath:(NSString *)signalPath
-                    definition:(PMVideoDefinitionType)definition
-                         isZip:(BOOL)isZip
-                        status:(void (^)(BJPMediaLibraryAuthorizationStatus status))handle;
 
 /** 退出教室 */
 - (void)exit;
 
 /** 
  进入教室
- @param error:成功进入房间, error为空, 如果有失败, error不为空
+ @param error 成功进入房间, error为空, 如果有失败, error不为空
  case: 在线播放, 获取playbackVM的播放信息
  case: 本地视频, 信令文件解压完毕,并载入内存
  */
@@ -147,6 +139,22 @@ NS_ASSUME_NONNULL_BEGIN
  仅 内网 & Debug 模式下有效 
  */
 + (void)setBJPDeployType:(BJLDeployType)deployType;
+
+@end
+
+#pragma mark - 废弃的方法
+
+@interface BJPRoom(deprecated)
+
++ (instancetype)onlineVideoCreateRoomWithClassId:(NSString *)classId token:(NSString *)token BJP_Will_DEPRECATED("+onlineVideoCreateRoomWithClassId:sessionId:token:");
+
++ (instancetype)localVideoCreateRoom BJP_Will_DEPRECATED("+localVideoCreatRoomWithVideoPath:signalPath:definition:isZip:status:");
+
+- (void)enterRoomWithVideoPath:(NSString *)videoPath
+                    signalPath:(NSString *)signalPath
+                    definition:(PMVideoDefinitionType)definition
+                         isZip:(BOOL)isZip
+                        status:(void (^)(BJPMediaLibraryAuthorizationStatus status))handle BJP_Will_DEPRECATED("enter");
 
 @end
 

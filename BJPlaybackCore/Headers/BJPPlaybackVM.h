@@ -122,6 +122,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)changeDefinition:(PMVideoDefinitionType)dt;
 
+- (void)resetWaterMark;
+
 @end
 
 NS_ASSUME_NONNULL_END

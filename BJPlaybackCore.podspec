@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BJPlaybackCore"
-  s.version      = "0.4.2"
+  s.version      = "0.5.0-beta02"
   s.summary      = "BJPlaybackCore SDK."
   s.license      = "MIT"
   s.author       = { "辛亚鹏" => "xinyapeng@baijiahulian.com" }
@@ -22,14 +22,23 @@ Pod::Spec.new do |s|
   
   # git
   s.source = { :git => 'https://github.com/baijia/BJPlaybackCore-iOS.git', :tag => s.version.to_s }
-  s.public_header_files = 'BJPlaybackCore/**/*.h'
-  s.source_files = 'BJPlaybackCore/**/*.h'
-  s.vendored_libraries = 'BJPlaybackCore/**/*.a'
+  
+  # # library
+#  s.public_header_files = 'BJPlaybackCore/**/*.h'
+#  s.source_files = 'BJPlaybackCore/**/*.h'
+#  s.vendored_libraries = 'BJPlaybackCore/**/*.a'
 #  s.resources = 'BJPlaybackCore/**/*.bundle'
+
+  # # framework
+  s.ios.preserve_paths       = 'BJPlaybackCore/BJPlaybackCore.framework'
+  s.ios.source_files         = 'BJPlaybackCore/BJPlaybackCore.framework/Versions/A/Headers/**/*.h'
+  s.ios.public_header_files  = 'BJPlaybackCore/BJPlaybackCore.framework/Versions/A/Headers/**/*.h'
+#  s.ios.resource             = 'BJPlaybackCore/BJPlaybackCore.framework/Versions/A/Resources/**/*'
+  s.ios.vendored_frameworks  = 'BJPlaybackCore/BJPlaybackCore.framework'
   
   s.dependency 'AFNetworking'
-  s.dependency 'BJLiveCore'
-  s.dependency 'BJPlayerManagerCore'
+  s.dependency 'BJLiveCore', '~> 0.5.0-beta'
+  s.dependency 'BJPlayerManagerCore', '~> 0.5.0'
   s.dependency 'LogStat'
   s.dependency 'YYModel'
 

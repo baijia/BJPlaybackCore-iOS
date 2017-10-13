@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "BJLUser.h"
-#import "NSObject+BJLObserving.h"
+#import <BJLiveCore/BJLUser.h>
+#import <BJLiveCore/NSObject+BJLObserving.h>
 
 @interface BJPOnlineUserVM : NSObject
 

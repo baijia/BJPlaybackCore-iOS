@@ -6,7 +6,7 @@
 //
 //
 
-#import "BJLBaseVM.h"
+#import <BJLiveCore/BJLBaseVM.h>
 #import <BJPlayerManagerCore/BJPlayerManagerCore.h>
 
 @class BJPSignalModel;

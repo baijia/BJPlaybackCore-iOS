@@ -3,22 +3,20 @@
 //  Pods
 //
 //  Created by 辛亚鹏 on 2016/12/21.
-//  Copyright © 2016年 Baijia Cloud. All rights reserved.
+//
 //
 
-#import <BJLiveCore/BJLBaseVM.h>
+#import "BJLBaseVM.h"
 #import <BJPlayerManagerCore/BJPlayerManagerCore.h>
 
 @class BJPSignalModel;
-
-NS_ASSUME_NONNULL_BEGIN
 
 @interface BJPPlaybackVM : NSObject
 
 /**
  设置回放用户的标识符
  */
-@property (nonatomic, nullable) NSString *userInfo;
+@property (nonatomic) NSString *userInfo;
 
 /**
  当前的播放时间  支持KVO
@@ -28,12 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  视频的总时长
  */
-@property (nonatomic, readonly) NSTimeInterval duration;
-
-/**
- 已经缓存的时长
- */
-@property (nonatomic, readonly) NSTimeInterval playableDuration;
+@property (nonatomic, readonly) NSUInteger duration;
 
 /**
  初始化播放时间, 用于记忆播放, 需要在进入房间之前设置
@@ -43,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  播放控制器
  */
-@property (nonatomic, readonly, nullable) BJPlayerManager *playerControl;
+@property (nonatomic, readonly) BJPlayerManager *playerControl;
 
 /**
  当前的播放速度
@@ -58,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  信令文件的url
  */
-@property (nonatomic, readonly, nullable) BJPSignalModel *signalModel;
+@property (nonatomic, readonly) BJPSignalModel *signalModel;
 
 /**
  播放器的view
@@ -68,17 +61,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  播放信息
  */
-@property (nonatomic, readonly, nullable) PMVideoInfoModel *videoInfoModel;
+@property (nonatomic, readonly) PMVideoInfoModel *videoInfoModel;
 
 /**
  当前播放清晰度
  */
-@property (nonatomic, readonly, nullable) PMVideoDefinitionInfoModel *currDefinitionInfoModel;
+@property (nonatomic, readonly) PMVideoDefinitionInfoModel *currDefinitionInfoModel;
 
 /**
  当前播放的CDN
  */
-@property (nonatomic, readonly, nullable) PMVideoCDNInfoModel *currCDNInfoModel;
+@property (nonatomic, readonly) PMVideoCDNInfoModel *currCDNInfoModel;
+
+
 
 /**
  play
@@ -109,21 +104,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)changeRate:(CGFloat)rate;
 
 /**
- play by vid
-
- @param vid vid
- */
-//- (void)playVideoById:(NSInteger)vid;
-
-/**
  切换清晰度
 
  @param dt 清晰度
  */
 - (void)changeDefinition:(PMVideoDefinitionType)dt;
 
-- (void)resetWaterMark;
-
 @end
-
-NS_ASSUME_NONNULL_END

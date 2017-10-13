@@ -3,13 +3,13 @@
 //  Pods
 //
 //  Created by 辛亚鹏 on 2017/1/12.
-//  Copyright © 2017年 Baijia Cloud. All rights reserved.
+//
 //
 
 #import <Foundation/Foundation.h>
-#import <BJLiveCore/BJliveCore.h>
 
-NS_ASSUME_NONNULL_BEGIN
+#import "BJLUser.h"
+#import "NSObject+BJLObserving.h"
 
 @interface BJPOnlineUserVM : NSObject
 
@@ -18,22 +18,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 有用户进入房间
  同时更新 `onlineUsers` */
-- (BJLObservable)onlineUserDidEnter:(BJLOnlineUser *)user;
+- (BJLObservable)onlineUserDidEnter:(NSObject<BJLOnlineUser> *)user;
 /** 有用户退出房间
  同时更新 `onlineUsers` */
-- (BJLObservable)onlineUserDidExit:(BJLOnlineUser *)user;
+- (BJLObservable)onlineUserDidExit:(NSObject<BJLOnlineUser> *)user;
 
 
 /**
  监听可以获取userCount
 */
-- (BJLObservable)onlineUserCount:(nullable NSNumber *)count;
+- (BJLObservable)onlineUserCount:(NSNumber *)count;
 
 /**
  监听可以获取用户列表
 */
-- (BJLObservable)onlineUserList:(nullable NSArray <BJLOnlineUser *> *)userList;
+- (BJLObservable)onlineUserList:(NSArray <NSObject<BJLOnlineUser> *> *)userList;
 
 @end
-
-NS_ASSUME_NONNULL_END

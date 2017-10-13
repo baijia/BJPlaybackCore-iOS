@@ -3,7 +3,7 @@
 //  BJHL-VideoPlayer-Manager
 //
 //  Created by 辛亚鹏 on 2017/1/7.
-//  Copyright © 2017年 Baijia Cloud. All rights reserved.
+//  Copyright © 2017年 bjhl. All rights reserved.
 //  信令文件
 
 #import <YYModel/YYModel.h>

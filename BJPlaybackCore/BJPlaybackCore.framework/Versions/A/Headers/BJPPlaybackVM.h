@@ -3,7 +3,7 @@
 //  Pods
 //
 //  Created by 辛亚鹏 on 2016/12/21.
-//
+//  Copyright © 2016年 Baijia Cloud. All rights reserved.
 //
 
 #import <BJLiveCore/BJLBaseVM.h>
@@ -11,12 +11,14 @@
 
 @class BJPSignalModel;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface BJPPlaybackVM : NSObject
 
 /**
  设置回放用户的标识符
  */
-@property (nonatomic) NSString *userInfo;
+@property (nonatomic, nullable) NSString *userInfo;
 
 /**
  当前的播放时间  支持KVO
@@ -26,7 +28,12 @@
 /**
  视频的总时长
  */
-@property (nonatomic, readonly) NSUInteger duration;
+@property (nonatomic, readonly) NSTimeInterval duration;
+
+/**
+ 已经缓存的时长
+ */
+@property (nonatomic, readonly) NSTimeInterval playableDuration;
 
 /**
  初始化播放时间, 用于记忆播放, 需要在进入房间之前设置
@@ -36,7 +43,7 @@
 /**
  播放控制器
  */
-@property (nonatomic, readonly) BJPlayerManager *playerControl;
+@property (nonatomic, readonly, nullable) BJPlayerManager *playerControl;
 
 /**
  当前的播放速度
@@ -51,7 +58,7 @@
 /**
  信令文件的url
  */
-@property (nonatomic, readonly) BJPSignalModel *signalModel;
+@property (nonatomic, readonly, nullable) BJPSignalModel *signalModel;
 
 /**
  播放器的view
@@ -61,19 +68,17 @@
 /**
  播放信息
  */
-@property (nonatomic, readonly) PMVideoInfoModel *videoInfoModel;
+@property (nonatomic, readonly, nullable) PMVideoInfoModel *videoInfoModel;
 
 /**
  当前播放清晰度
  */
-@property (nonatomic, readonly) PMVideoDefinitionInfoModel *currDefinitionInfoModel;
+@property (nonatomic, readonly, nullable) PMVideoDefinitionInfoModel *currDefinitionInfoModel;
 
 /**
  当前播放的CDN
  */
-@property (nonatomic, readonly) PMVideoCDNInfoModel *currCDNInfoModel;
-
-
+@property (nonatomic, readonly, nullable) PMVideoCDNInfoModel *currCDNInfoModel;
 
 /**
  play
@@ -104,10 +109,24 @@
 - (void)changeRate:(CGFloat)rate;
 
 /**
+ play by vid
+
+ @param vid vid
+ */
+//- (void)playVideoById:(NSInteger)vid;
+
+/**
  切换清晰度
 
  @param dt 清晰度
  */
 - (void)changeDefinition:(PMVideoDefinitionType)dt;
 
+/**
+ 设置水印
+ */
+- (void)resetWaterMark;
+
 @end
+
+NS_ASSUME_NONNULL_END

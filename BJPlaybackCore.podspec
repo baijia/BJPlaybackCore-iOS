@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BJPlaybackCore"
-  s.version      = "0.2.7.7-sd01"
+  s.version      = "1.0.0"
   s.summary      = "BJPlaybackCore SDK."
   s.license      = "MIT"
   s.author       = { "辛亚鹏" => "xinyapeng@baijiahulian.com" }
@@ -37,16 +37,17 @@ Pod::Spec.new do |s|
   s.ios.vendored_frameworks  = 'BJPlaybackCore/BJPlaybackCore.framework'
   
   s.dependency 'AFNetworking'
-  s.dependency 'BJLiveCore', '0.2.4-dylib07-sd'
-  s.dependency 'BJPlayerManagerCore', '0.3.9-sd'
+  s.dependency 'BJLiveCore', '~>1.0.0'
+  s.dependency 'BJPlayerManagerCore', '~>1.0.0'
   s.dependency 'LogStat'
   s.dependency 'YYModel'
   
-  s.dependency 'SDWebImage', '0.2.0-sd'
+  s.dependency 'BJLiveBase', '~> 1.0.0'
+  s.dependency 'BJLiveBase/Ext'
+  s.dependency 'BJLiveBase/Base'
 
   # DEPRECATED
   s.dependency 'NVHTarGzip'
-#  s.dependency 'ReactiveObjC'
-  s.dependency 'ReactiveCocoa'
+  s.dependency 'ReactiveObjC'
  
 end

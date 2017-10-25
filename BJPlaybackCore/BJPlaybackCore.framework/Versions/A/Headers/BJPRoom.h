@@ -100,6 +100,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (BJLObservable)didReceiveMessageList:(NSArray <BJPMessage *> *)messageList;
 
 /**
+ 聊天信息的list
+ */
+- (BJLObservable)didReceiveMessageList:(NSArray <BJPMessage *> *)messageList;
+
+/**
  抛出主讲人的音视频信息 media_publish
  */
 - (BJLObservable)latestMediaPublish:(BJPMediaPublish *)mediaPublish;
@@ -120,6 +125,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 教室信息、状态，用户信息，公告等 */
 @property (nonatomic, readonly, nullable) BJLRoomVM *roomVM;
+
+/** 最新公告, 可能为空 */
+@property (nonatomic, nullable) BJLNotice *notice;
+
 
 /** 是否是本地视频 */
 @property (nonatomic, readonly) BOOL *isLocalVideo;

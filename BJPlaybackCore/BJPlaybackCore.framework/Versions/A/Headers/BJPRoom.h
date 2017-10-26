@@ -100,11 +100,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (BJLObservable)didReceiveMessageList:(NSArray <BJPMessage *> *)messageList;
 
 /**
- 聊天信息的list
- */
-- (BJLObservable)didReceiveMessageList:(NSArray <BJPMessage *> *)messageList;
-
-/**
  抛出主讲人的音视频信息 media_publish
  */
 - (BJLObservable)latestMediaPublish:(BJPMediaPublish *)mediaPublish;
@@ -123,18 +118,17 @@ NS_ASSUME_NONNULL_BEGIN
 /** 教室id */
 @property (readonly, nonatomic, nonnull) NSString *classId;
 
-/** 教室信息、状态，用户信息，公告等 */
+/** 教室信息、状态，用户信息 */
 @property (nonatomic, readonly, nullable) BJLRoomVM *roomVM;
 
 /** 最新公告, 可能为空 */
 @property (nonatomic, nullable) BJLNotice *notice;
-
+    
+/** ppt是否使用动画, 目前直播回放暂时不支持回放, yes为禁止 */
+@property (nonatomic, readonly) BOOL disablePPTAnimation;
 
 /** 是否是本地视频 */
 @property (nonatomic, readonly) BOOL *isLocalVideo;
-
-/** 禁用 PPT 动画, yes为禁止, 默认禁止 */
-@property (nonatomic, readonly) BOOL disablePPTAnimation;
 
 /** 在线用户 */
 @property (nonatomic, readonly, nullable) BJPOnlineUserVM *onlineUsersVM;

@@ -9,6 +9,8 @@
 #ifndef Header_h
 #define Header_h
 
+//#import <BJLiveBase/BJL_M9Dev.h>
+
 #import "BJPRoom.h"
 #import "BJPLoadingVM.h"
 #import "BJPOnlineUserVM.h"
@@ -18,5 +20,8 @@
 #import "BJPMessage.h"
 
 #import "NSDictionary+BJPDataValue.h"
+
+FOUNDATION_EXPORT NSString * BJPlaybackCoreName();
+FOUNDATION_EXPORT NSString * BJPlaybackCoreVersion();
 
 #endif /* Header_h */

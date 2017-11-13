@@ -3,18 +3,18 @@
 //  Pods
 //
 //  Created by 辛亚鹏 on 2017/1/18.
-//  Copyright © 2017年 Baijia Cloud. All rights reserved.
+//  Copyright © 2017年 bjhl. All rights reserved.
 //  聊天信息
 
 #import <Foundation/Foundation.h>
-#import <BJLiveCore/BJliveCore.h>
+#import <YYModel/YYModel.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface BJPMessage : BJLMessage
+@interface BJPMessage : NSObject<YYModel>
 
 @property (assign, nonatomic) NSInteger offsetTimestamp;
+@property (strong, nonatomic) NSString *classId, *content;
+
+@property (strong, nonatomic) NSString *userAvatar; //用户头像图片的url
+@property (strong, nonatomic) NSString *userName;
 
 @end
-
-NS_ASSUME_NONNULL_END

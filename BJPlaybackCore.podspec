@@ -37,8 +37,8 @@ Pod::Spec.new do |s|
   s.ios.vendored_frameworks  = 'BJPlaybackCore/BJPlaybackCore.framework'
   
   s.dependency 'AFNetworking'
-  s.dependency 'BJLiveCore', 0.2.4-dylib07'
-  s.dependency 'BJPlayerManagerCore', ~> 0.3.6'
+  s.dependency 'BJLiveCore', '0.2.4-dylib07'
+  s.dependency 'BJPlayerManagerCore', '~> 0.3.6'
   s.dependency 'LogStat'
   s.dependency 'YYModel'
   

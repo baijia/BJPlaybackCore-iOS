@@ -48,6 +48,6 @@ Pod::Spec.new do |s|
 
   # DEPRECATED
   s.dependency 'NVHTarGzip'
-  s.dependency 'ReactiveObjC'
+  s.dependency 'ReactiveCocoa', '~> 2.0'
  
 end

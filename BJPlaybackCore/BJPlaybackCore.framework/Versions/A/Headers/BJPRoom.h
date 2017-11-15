@@ -56,6 +56,10 @@ NS_ASSUME_NONNULL_BEGIN
                                         userName:(nullable NSString *)userName
                                       userNumber:(NSInteger)userNumber;
 
++ (instancetype)onlineVideoCreateRoomWithClassId:(NSString *)classId
+                                       sessionId:(nullable NSString *)sessionId
+                                           token:(NSString *)token BJP_Will_DEPRECATED("onlineVideoCreateRoomWithClassId:token:userName:userNumber:");
+
 /**
  创建本地视频  进入房间
  
@@ -71,6 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
                                       definition:(PMVideoDefinitionType)definition
                                            isZip:(BOOL)isZip
                                           status:(void (^)(BJPMediaLibraryAuthorizationStatus status))handle;
+
 
 /**
  Unavailable. Please use method: onlineCreateRoomWithClassId:token: | localVideoCreatRoomWithVideoPath:signalPath:definition:isZip:

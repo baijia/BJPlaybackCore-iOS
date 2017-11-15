@@ -19,6 +19,8 @@
 #import "BJPMediaPublish.h"
 #import "BJPMessage.h"
 
+#import "BJPPlaybackCoreMacro.h"
+
 #import "NSDictionary+BJPDataValue.h"
 
 FOUNDATION_EXPORT NSString * BJPlaybackCoreName();

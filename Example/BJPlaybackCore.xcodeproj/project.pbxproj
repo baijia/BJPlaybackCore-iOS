@@ -28,7 +28,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		7D63598B2044D2DFB2CB2469 /* libPods-BJPlaybackCore_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC02493794D7E30C78767C4 /* libPods-BJPlaybackCore_Example.a */; };
+		7D63598B2044D2DFB2CB2469 /* libPods-BJPlaybackCore_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC02493794D7E30C78767C4 /* libPods-BJPlaybackCore_Example.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 

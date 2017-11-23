@@ -9,7 +9,7 @@
 #import "BJEnterRoomViewController.h"
 #import <ReactiveObjC/ReactiveObjC.h>
 #import <BJLiveCore/BJLiveCore.h>
-#import <BJLiveCore/NSObject+BJLObserving.h>
+#import <BJLiveBase/NSObject+BJLObserving.h>
 #import <Masonry/Masonry.h>
 #import <BJPlayerManagerCore/BJPlayerManagerCore.h>
 

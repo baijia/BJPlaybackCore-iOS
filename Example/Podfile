@@ -6,7 +6,7 @@ source 'https://github.com/baijia/specs.git'
 
 target 'BJPlaybackCore_Example' do
   
-  pod 'BJPlaybackCore'
+  pod 'BJPlaybackCore' 
   pod 'Masonry'
   pod 'SDWebImage'
   pod 'MBProgressHUD'

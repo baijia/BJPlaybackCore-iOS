@@ -6,13 +6,13 @@
 //  Copyright © 2017年 Baijia Cloud. All rights reserved.
 //  信令文件
 
-#import <YYModel/YYModel.h>
+#import <BJLiveBase/BJLYYModel.h>
 #import <Foundation/Foundation.h>
 
 static NSString *signalKeyAll = @"all", *signalKeyCommand = @"command",
                 *signalKeyDoc = @"doc", *signalKeyChatFileInfo = @"chatFileInfo";
 
-@interface BJPSignal : NSObject<YYModel>
+@interface BJPSignal : NSObject<BJLYYModel>
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *url;
@@ -20,7 +20,7 @@ static NSString *signalKeyAll = @"all", *signalKeyCommand = @"command",
 
 @end
 
-@interface BJPSignalModel : NSObject<YYModel>
+@interface BJPSignalModel : NSObject<BJLYYModel>
 
 @property (nonatomic) NSArray<BJPSignal *> *chatList;
 @property (nonatomic) NSArray<BJPSignal *> *signalList;

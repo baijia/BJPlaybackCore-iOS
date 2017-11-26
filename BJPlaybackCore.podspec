@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BJPlaybackCore"
-  s.version      = "1.1.4"
+  s.version      = "1.3.0-alpha"
   s.summary      = "BJPlaybackCore SDK."
   s.license      = "MIT"
   s.author       = { "辛亚鹏" => "xinyapeng@baijiahulian.com" }
@@ -41,18 +41,17 @@ Pod::Spec.new do |s|
                  "GCC_PREPROCESSOR_DEFINITIONS" => "$(inherited) PODSPEC_NAME=#{s.name} PODSPEC_VERSION=#{s.version}"
                 }
   
-  s.dependency 'AFNetworking'
-  s.dependency 'BJLiveCore', '~>1.1.0'
-  s.dependency 'BJPlayerManagerCore', '~> 1.1.4'
-  s.dependency 'LogStat'
-  s.dependency 'YYModel'
+
+  s.dependency 'BJLiveCore', '~> 1.3.0-alpha'
+  s.dependency 'BJPlayerManagerCore', '~>1.3.0-alpha'
   
-  s.dependency 'BJLiveBase', '~> 1.1.0'
+  s.dependency 'BJLiveBase', '~> 1.3.0-alpha'
   s.dependency 'BJLiveBase/Ext'
   s.dependency 'BJLiveBase/Base'
+  s.dependency 'BJLiveBase/YYModel'
+  s.dependency 'BJLiveBase/Networking'
 
   # DEPRECATED
-  s.dependency 'NVHTarGzip'
   s.dependency 'ReactiveObjC'
  
 end

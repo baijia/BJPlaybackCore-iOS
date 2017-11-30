@@ -74,7 +74,12 @@ NS_ASSUME_NONNULL_BEGIN
                                       signalPath:(NSString *)signalPath
                                       definition:(PMVideoDefinitionType)definition
                                            isZip:(BOOL)isZip
-                                          status:(void (^)(BJPMediaLibraryAuthorizationStatus status))handle;
+                                          status:(void (^)(BJPMediaLibraryAuthorizationStatus status))handle BJP_Will_DEPRECATED("localVideoCreatRoomWithVideoPath:signalPath:definition:isZip");
+
++ (instancetype)localVideoCreatRoomWithVideoPath:(NSString *)videoPath
+                                      signalPath:(NSString *)signalPath
+                                      definition:(PMVideoDefinitionType)definition
+                                           isZip:(BOOL)isZip;
 
 
 /**

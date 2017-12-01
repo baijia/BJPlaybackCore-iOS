@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BJPlaybackCore"
-  s.version      = "1.1.7"
+  s.version      = "1.2.0"
   s.summary      = "BJPlaybackCore SDK."
   s.license      = "MIT"
   s.author       = { "辛亚鹏" => "xinyapeng@baijiahulian.com" }
@@ -55,12 +55,11 @@ Pod::Spec.new do |s|
   # s.dependency 'ReactiveObjC'
   
   s.dependency 'AFNetworking'
-  s.dependency 'BJLiveCore', '~>1.1.0'
-  s.dependency 'BJPlayerManagerCore', '~>1.1.4'
-  s.dependency 'LogStat'
+  s.dependency 'BJLiveCore', '~>1.2.0'
+  s.dependency 'BJPlayerManagerCore', '~>1.2.0'
   s.dependency 'YYModel'
  
-  s.dependency 'BJLiveBase', '~> 1.1.0'
+  s.dependency 'BJLiveBase', '~> 1.2.0'
   s.dependency 'BJLiveBase/Ext'
   s.dependency 'BJLiveBase/Base'
 

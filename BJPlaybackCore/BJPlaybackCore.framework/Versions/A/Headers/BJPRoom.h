@@ -56,10 +56,6 @@ NS_ASSUME_NONNULL_BEGIN
                                         userName:(nullable NSString *)userName
                                       userNumber:(NSInteger)userNumber;
 
-+ (instancetype)onlineVideoCreateRoomWithClassId:(NSString *)classId
-                                       sessionId:(nullable NSString *)sessionId
-                                           token:(NSString *)token BJP_Will_DEPRECATED("onlineVideoCreateRoomWithClassId:token:userName:userNumber:");
-
 /**
  创建本地视频  进入房间
  
@@ -67,15 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param signalPath 本地信令, 根据isZip的值, 传信令文件的路径
  @param isZip 所传信令文件是否为压缩文件, YES:传压缩的信令文件的路径
  NO: 传解压后的信令文件, 且所传的路径的下一级目录即为all.json等数据
- @param handle 用于在iOS10以上的系统用户授权进入本地资料库, 如果版本低iOS10,不需要授权,
- 即status = BJPMediaLibraryAuthorizationStatusAuthorized
  */
-+ (instancetype)localVideoCreatRoomWithVideoPath:(NSString *)videoPath
-                                      signalPath:(NSString *)signalPath
-                                      definition:(PMVideoDefinitionType)definition
-                                           isZip:(BOOL)isZip
-                                          status:(void (^)(BJPMediaLibraryAuthorizationStatus status))handle BJP_Will_DEPRECATED("localVideoCreatRoomWithVideoPath:signalPath:definition:isZip");
-
 + (instancetype)localVideoCreatRoomWithVideoPath:(NSString *)videoPath
                                       signalPath:(NSString *)signalPath
                                       definition:(PMVideoDefinitionType)definition
@@ -142,7 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /** 是否是本地视频 */
-@property (nonatomic, readonly) BOOL *isLocalVideo;
+@property (nonatomic, readonly) BOOL isLocalVideo;
 
 /** 禁用 PPT 动画, yes为禁止, 默认禁止 */
 @property (nonatomic, readonly) BOOL disablePPTAnimation;
@@ -161,7 +149,7 @@ NS_ASSUME_NONNULL_BEGIN
  调用 enter 之后设置无效
  仅 内网 & Debug 模式下有效 
  */
-+ (void)setBJPDeployType:(BJLDeployType)deployType;
++ (void)setBJPDeployType:(PMDeployType)deployType;
 
 @end
 
@@ -171,6 +159,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)onlineVideoCreateRoomWithClassId:(NSString *)classId token:(NSString *)token BJP_Will_DEPRECATED("+onlineVideoCreateRoomWithClassId:sessionId:token:");
 
++ (instancetype)onlineVideoCreateRoomWithClassId:(NSString *)classId
+                                       sessionId:(nullable NSString *)sessionId
+                                           token:(NSString *)token BJP_Will_DEPRECATED("onlineVideoCreateRoomWithClassId:token:userName:userNumber:");
+
 + (instancetype)localVideoCreateRoom BJP_Will_DEPRECATED("+localVideoCreatRoomWithVideoPath:signalPath:definition:isZip:status:");
 
 - (void)enterRoomWithVideoPath:(NSString *)videoPath
@@ -178,6 +170,11 @@ NS_ASSUME_NONNULL_BEGIN
                     definition:(PMVideoDefinitionType)definition
                          isZip:(BOOL)isZip
                         status:(void (^)(BJPMediaLibraryAuthorizationStatus status))handle BJP_Will_DEPRECATED("enter");
++ (instancetype)localVideoCreatRoomWithVideoPath:(NSString *)videoPath
+                                      signalPath:(NSString *)signalPath
+                                      definition:(PMVideoDefinitionType)definition
+                                           isZip:(BOOL)isZip
+                                          status:(void (^)(BJPMediaLibraryAuthorizationStatus status))handle BJP_Will_DEPRECATED("-localVideoCreatRoomWithVideoPath:signalPath:definition:isZip:");;
 
 @end
 

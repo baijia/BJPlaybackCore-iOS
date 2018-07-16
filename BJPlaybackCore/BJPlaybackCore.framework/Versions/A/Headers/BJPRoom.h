@@ -85,9 +85,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (BJLObservable)roomDidExitWithError:(BJLError *)error;
 
 /**
- 聊天信息的list
+ 聊天信息的list,批量更新
  */
 - (BJLObservable)didReceiveMessageList:(NSArray <BJPMessage *> *)messageList;
+
+/**
+ 聊天信息的list,增量更新
+ */
+- (BJLObservable)didReceiveNewMessageList:(NSArray <BJPMessage *> *)messageList;
 
 /** 回放的管理VM */
 @property (nonatomic, readonly, nullable) BJPPlaybackVM *playbackVM;

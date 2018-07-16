@@ -26,7 +26,7 @@
 /**
  视频的总时长
  */
-@property (nonatomic, readonly) NSTimeInterval duration;
+@property (nonatomic, readonly) NSUInteger duration;
 
 /**
  初始化播放时间, 用于记忆播放, 需要在进入房间之前设置
